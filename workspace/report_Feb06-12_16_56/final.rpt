@@ -1,0 +1,51 @@
+
+
+Working Directory = /home/rdpuser/digital_anuj/cic_adi/workspace
+QoS Summary for cic
+==========================================================================================
+Metric                          generic         map             syn_opt         final          
+==========================================================================================
+Slack (ps):                    49,729          49,756          49,756          49,756
+  R2R (ps):                    95,756          93,954          93,954          93,954
+  I2R (ps):                  no_value        no_value        no_value        no_value
+  R2O (ps):                  no_value        no_value        no_value        no_value
+  I2O (ps):                  no_value        no_value        no_value        no_value
+  CG  (ps):                    49,729          49,756          49,756          49,756
+TNS (ps):                           0               0               0               0
+  R2R (ps):                         0               0               0               0
+  I2R (ps):                  no_value        no_value        no_value        no_value
+  R2O (ps):                  no_value        no_value        no_value        no_value
+  I2O (ps):                  no_value        no_value        no_value        no_value
+  CG  (ps):                         0               0               0               0
+Failing Paths:                      0               0               0               0
+Cell Area:                     49,125          29,239          29,219          29,219
+Total Cell Area:               49,125          29,239          29,219          29,219
+Leaf Instances:                 1,490             519             461             461
+Total Instances:                1,490             519             461             461
+Utilization (%):                 0.00            0.00            0.00            0.00
+Tot. Net Length (um):        no_value        no_value        no_value        no_value
+Avg. Net Length (um):        no_value        no_value        no_value        no_value
+Route Overflow H (%):        no_value        no_value        no_value        no_value
+Route Overflow V (%):        no_value        no_value        no_value        no_value
+MBCI(%) (bits/gate) :            0.00            0.00            0.00            0.00
+Norm Cong Hotspot Area:
+  Max Cong:                  no_value        no_value        no_value        no_value
+  Tot Cong:                  no_value        no_value        no_value        no_value
+==========================================================================================
+CPU  Runtime (h:m:s):        00:30:06        00:30:04        00:30:01        00:30:00
+Real Runtime (h:m:s):        00:30:06        00:30:04        00:30:01        00:30:00
+CPU  Elapsed (h:m:s):        00:30:08        00:30:12        00:30:13        00:30:13
+Real Elapsed (h:m:s):        00:30:07        00:30:11        00:30:12        00:30:12
+Memory (MB):                  1524.07         1526.91         1558.73         1560.73
+==========================================================================================
+==========================================================================================
+Flow Settings:
+==========================================================================================
+Total Runtime (h:m:s): 00:30:11
+Total Memory (MB):     1560.73
+Executable Version:    21.14-s082_1
+==========================================================================================
+Total Cell Area =  Cell Area + Physical Cell Area
+Total Instances =  Leaf Instances + Physical Instances
+
+

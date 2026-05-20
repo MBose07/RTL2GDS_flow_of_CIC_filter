@@ -1,0 +1,83 @@
+###############################
+#report_qor -out_file qor.html#
+###############################
+
+
+
+set_db timing_analysis_type ocv
+set_db timing_analysis_cppr both
+set_db place_global_place_io_pins true
+set_dont_use *XL true
+set_dont_use *X1 true
+place_opt_design
+
+set_db add_tieoffs_cells "TIEHI TIELO"
+#set_db add_tieoffs_max_fanout
+#set_db add_tieoffs_max_distance
+add_tieoffs
+place_detail
+
+#check_place 
+#man check_place 
+write_db ./DBS/prects.db
+#*route
+set_db route_early_global_bottom_routing_layer 2
+set_db route_early_global_top_routing_layer 6
+set_db route_early_global_honor_power_domain false
+set_db route_early_global_honor_partition_pin_guide true
+route_early_global
+report_congestion -hotspot 
+write_db ./DBS/preRC.db
+
+
+
+
+extract_rc
+write_parasitics -spef_file rc.spef -rc_corner rc_nom
+#report_timing
+time_design -pre_cts -path_report -drv_report -slack_report -num_paths 50 -report_prefix fir_preCTS -report_dir timingReports
+#report_timing
+
+create_route_rule -width {Metal1 0.240 Metal2 0.280 Metal3 0.280 Metal4 0.280 Metal5 0.280 Metal6 0.440} -spacing {Metal1 0.280 Metal2 0.350 Metal3 0.320 Metal4 0.320 Metal5 0.320 Metal6 0.480} -name 2w2s
+create_route_type -name clkroute -route_rule 2w2s -bottom_preferred_layer Metal2 -top_preferred_layer Metal5
+set_db cts_route_type_trunk clkroute
+set_db cts_route_type_leaf clkroute
+set_db cts_inverter_cells {CLKINVXL CLKINVX1 CLKINVX2 CLKINVX3 CLKINVX4 CLKINVX8 CLKINVX12 CLKINVX16 CLKINVX20 }
+set_db cts_buffer_cells {CLKBUFXL CLKBUFX1 CLKBUFX2 CLKBUFX3 CLKBUFX4 CLKBUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 }
+#we dont have clock gate cell specifically, we instructed genus to make on its own but we dont know if to put set_db cts_clk gating cells to anything or not
+create_clock_tree_spec -out_file ccopt.spec
+source ccopt.spec
+
+ccopt_design
+#ccopt_design
+write_db ./DBS/cts.db
+time_design -post_cts
+time_design -post_cts -hold
+write_db ./DBS/postcts.db
+
+#we dont have antenna because genus said soMetalhing about it but we did anyways
+set_db route_design_detail_fix_antenna true
+set_db route_design_antenna_diode_insertion 1
+set_db route_design_antenna_cell_name ANTENNA
+set_db route_design_with_timing_driven 1
+set_db route_design_with_si_driven 1
+set_db route_design_top_routing_layer 5
+set_db route_design_bottom_routing_layer 1
+set_db route_design_detail_end_iteration 0
+set_db route_design_with_timing_driven true
+set_db route_design_with_si_driven true
+route_design -global_detail
+route_eco -fix_drc
+delete_routes -regular_wire_with_drc
+route_design
+set_layer_preference violation -is_visible 1
+#lot of errors of after this
+write_db ./DBS/route.db
+
+set_db extract_rc_engine post_route
+set_db extract_rc_effort_level medium
+time_design -post_route
+time_design -post_route -hold
+opt_design -post_route -setup -hold
+write_db ./DBS/final.db
+#too many violations, 282 (should we fix manually?)

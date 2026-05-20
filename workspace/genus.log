@@ -1,0 +1,40 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[12:15:49.275889] Configured Lic search path (21.01-s002): 5280@14.139.1.126
+
+Version: 21.14-s082_1, built Thu Jun 23 02:02:08 PDT 2022
+Options: 
+Date:    Fri Feb 06 12:15:49 2026
+Host:    dtiresearch.iitbhu.ac.in (x86_64 w/Linux 4.18.0-553.89.1.el8_10.x86_64) (24cores*32cpus*1physical cpu*Intel(R) Core(TM) i9-14900 36864KB) (32328476KB)
+PID:     2010364
+OS:      Red Hat Enterprise Linux release 8.10 (Ootpa)
+
+
+[12:15:52.358937] Periodic Lic check successful
+[12:15:52.358944] Feature usage summary:
+[12:15:52.358944] Genus_Synthesis
+Checking out license: Genus_Synthesis (3 seconds elapsed).
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (4 seconds elapsed).
+
+WARNING: This version of the tool is 1323 days old.
+@genus:root: 1> clear
+@genus:root: 2> genus -f ../gg.tcl
+@genus:root: 3> exit
+
+Lic Summary:
+[12:26:26.462488] Cdslmd servers: cadence-c2s
+[12:26:26.462489] Feature usage summary:
+[12:26:26.462489] Genus_Synthesis
+
+Normal exit.

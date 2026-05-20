@@ -1,0 +1,720 @@
+[03/25 13:37:46      0s] 
+[03/25 13:37:46      0s] Cadence Innovus(TM) Implementation System.
+[03/25 13:37:46      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[03/25 13:37:46      0s] 
+[03/25 13:37:46      0s] Version:	v21.15-s110_1, built Fri Sep 23 13:08:12 PDT 2022
+[03/25 13:37:46      0s] Options:	-stylus 
+[03/25 13:37:46      0s] Date:		Wed Mar 25 13:37:45 2026
+[03/25 13:37:46      0s] Host:		dtiresearch.iitbhu.ac.in (x86_64 w/Linux 4.18.0-553.111.1.el8_10.x86_64) (24cores*32cpus*Intel(R) Core(TM) i9-14900 36864KB)
+[03/25 13:37:46      0s] OS:		Red Hat Enterprise Linux release 8.10 (Ootpa)
+[03/25 13:37:46      0s] 
+[03/25 13:37:46      0s] License:
+[03/25 13:37:46      0s] 		[13:37:45.275897] Configured Lic search path (21.01-s002): 5280@14.139.1.126
+[03/25 13:37:46      0s] 
+[03/25 13:37:46      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[03/25 13:37:46      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[03/25 13:37:50      3s] 
+[03/25 13:37:50      3s] 
+[03/25 13:37:52      5s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v21.15-s110_1 (64bit) 09/23/2022 13:08 (Linux 3.10.0-693.el7.x86_64)
+[03/25 13:37:53      6s] @(#)CDS: NanoRoute 21.15-s110_1 NR220912-2004/21_15-UB (database version 18.20.592) {superthreading v2.17}
+[03/25 13:37:53      6s] @(#)CDS: AAE 21.15-s039 (64bit) 09/23/2022 (Linux 3.10.0-693.el7.x86_64)
+[03/25 13:37:53      6s] @(#)CDS: CTE 21.15-s038_1 () Sep 20 2022 11:42:13 ( )
+[03/25 13:37:53      6s] @(#)CDS: SYNTECH 21.15-s012_1 () Sep  5 2022 10:25:51 ( )
+[03/25 13:37:53      6s] @(#)CDS: CPE v21.15-s076
+[03/25 13:37:53      6s] @(#)CDS: IQuantus/TQuantus 21.1.1-s867 (64bit) Sun Jun 26 22:12:54 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+[03/25 13:37:53      6s] @(#)CDS: OA 22.60-p076 Wed May 18 13:45:29 2022
+[03/25 13:37:53      6s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[03/25 13:37:53      6s] @(#)CDS: RCDB 11.15.0
+[03/25 13:37:53      6s] @(#)CDS: STYLUS 21.12-s013_1 (08/15/2022 08:25 PDT)
+[03/25 13:37:53      6s] @(#)CDS: SystemPlanner-21.15Rel-8720 (21.15) (2022-08-22 18:31:54+0800)
+[03/25 13:37:53      6s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_36766_dtiresearch.iitbhu.ac.in_auralab_iEiKKe.
+
+[03/25 13:37:53      6s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_36766_dtiresearch.iitbhu.ac.in_auralab_iEiKKe.
+[03/25 13:37:53      6s] 
+[03/25 13:37:53      6s] Change the soft stacksize limit to 0.2%RAM (127 mbytes). Set global soft_stack_size_limit to change the value.
+[03/25 13:37:54      7s] [INFO] Loading PVS 22.20 fill procedures
+[03/25 13:37:54      7s] 
+[03/25 13:37:54      7s] **INFO:  MMMC transition support version v31-84 
+[03/25 13:37:54      7s] 
+[03/25 13:37:56      9s] @innovus 1> read_db final.db/
+[03/25 13:38:15      9s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+#% Begin load design ... (date=03/25 13:38:15, mem=1022.2M)
+[03/25 13:38:15      9s] AAE_INFO: switching -siAware from false to true ...
+[03/25 13:38:15      9s] AAE_INFO: The setting is changed from false to true in setDelayCalMode -SIAware
+[03/25 13:38:15      9s] ##  Process: 180           (User Set)               
+[03/25 13:38:15      9s] ##     Node: (not set)                           
+[03/25 13:38:15      9s] 
+[03/25 13:38:15      9s] ##  Check design process and node:  
+[03/25 13:38:15      9s] ##  Design tech node is not set.
+[03/25 13:38:15      9s] 
+[03/25 13:38:15      9s] Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+[03/25 13:38:15      9s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[03/25 13:38:15      9s] 	For post_route extract_rc_effort_level low extraction, the coupling_c_th value will be used only when the extract_rc_cap_filter_mode parameter of the set_db command is set to relative_and_coupling or relative_or_coupling. Default value of extract_rc_cap_filter_mode parameter in post_route extraction extract_rc_effort_level low is relative_only.
+[03/25 13:38:15      9s] 	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+[03/25 13:38:15      9s] 	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+[03/25 13:38:15      9s] **WARN: (IMPUDM-33):	Global variable "timing_enable_separate_device_slew_effect_sensitivities" is obsolete and will be removed in a future release. The obsolete variable still works in this release, but to avoid this warning and to ensure compatibility with future releases, remove the obsolete variable from your script.
+[03/25 13:38:15      9s] **WARN: (IMPUDM-33):	Global variable "timing_enable_separate_device_slew_effect_sensitivities" is obsolete and will be removed in a future release. The obsolete variable still works in this release, but to avoid this warning and to ensure compatibility with future releases, remove the obsolete variable from your script.
+[03/25 13:38:15      9s] **WARN: (IMPDBTCL-321):	The attribute 'timing_enable_separate_device_slew_effect_sensitivities' still works but will be obsolete in a future major release. You should remove it from your script before the next major release to avoid errors.
+[03/25 13:38:15      9s] **WARN: (IMPUDM-33):	Global variable "timing_enable_separate_device_slew_effect_sensitivities" is obsolete and will be removed in a future release. The obsolete variable still works in this release, but to avoid this warning and to ensure compatibility with future releases, remove the obsolete variable from your script.
+[03/25 13:38:15      9s] Loading design 'cic' saved by 'Innovus' '21.15-s110_1' on 'Fri Feb 6 12:48:06 2026'.
+[03/25 13:38:15      9s] Reading nom timing library '/home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/mmmc/typical.lib' ...
+[03/25 13:38:16     10s] **WARN: (TECHLIB-302):	No function defined for cell 'HOLDX1'. The cell will only be used for analysis. (File /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/mmmc/typical.lib)
+[03/25 13:38:16     10s] Read 470 cells in library 'typical' 
+[03/25 13:38:16     10s] Ending "PreSetAnalysisView" (total cpu=0:00:00.2, real=0:00:01.0, peak res=1086.9M, current mem=1035.7M)
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] Loading LEF file /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/lef/all.lef ...
+[03/25 13:38:16     10s] Set DBUPerIGU to M2 pitch 1320.
+[03/25 13:38:16     10s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-200' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[0]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[10]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[11]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[12]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[13]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[14]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[15]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[1]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[2]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[3]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[4]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[5]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[6]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[7]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[8]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[9]' in macro 'rom_512x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[0]' in macro 'ram_256x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[10]' in macro 'ram_256x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[11]' in macro 'ram_256x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-201):	Pin 'Q[12]' in macro 'ram_256x16A' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-201' for more detail.
+[03/25 13:38:16     10s] **WARN: (EMS-27):	Message (IMPLF-201) has exceeded the current message display limit of 20.
+[03/25 13:38:16     10s] To increase the message display limit, refer to the product command reference manual.
+[03/25 13:38:16     10s] **WARN: (IMPLF-200):	Pin 'PAD' in macro 'PDB04DGZ' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-200' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-200):	Pin 'OEN' in macro 'PDB04DGZ' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-200' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPLF-200):	Pin 'I' in macro 'PDB04DGZ' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/25 13:38:16     10s] Type 'man IMPLF-200' for more detail.
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] ##  Check design process and node:  
+[03/25 13:38:16     10s] ##  Design tech node is not set.
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] Loading view definition file from /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/viewDefinition.tcl
+[03/25 13:38:16     10s] % Begin Load netlist data ... (date=03/25 13:38:16, mem=1045.8M)
+[03/25 13:38:16     10s] *** Begin netlist parsing (mem=1115.7M) ***
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3X4' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3X4' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3X2' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3X2' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2XL' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2XL' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X4' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X4' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X2' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X2' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR3X4' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR3X4' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR3X2' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR3X2' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR2XL' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR2XL' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR2X4' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR2X4' is defined in LEF but not in the timing library.
+[03/25 13:38:16     10s] Type 'man IMPVL-159' for more detail.
+[03/25 13:38:16     10s] **WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+[03/25 13:38:16     10s] To increase the message display limit, refer to the product command reference manual.
+[03/25 13:38:16     10s] Created 470 new cells from 1 timing libraries.
+[03/25 13:38:16     10s] Reading netlist ...
+[03/25 13:38:16     10s] Backslashed names will retain backslash and a trailing blank character.
+[03/25 13:38:16     10s] Reading verilogBinary netlist '/home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic.v.bin'
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] *** Memory Usage v#1 (Current mem = 1125.672M, initial mem = 491.887M) ***
+[03/25 13:38:16     10s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1125.7M) ***
+[03/25 13:38:16     10s] % End Load netlist data ... (date=03/25 13:38:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=1055.3M, current mem=1055.3M)
+[03/25 13:38:16     10s] Set top cell to cic.
+[03/25 13:38:16     10s] Hooked 470 DB cells to tlib cells.
+[03/25 13:38:16     10s] ** Removed 8 unused lib cells.
+[03/25 13:38:16     10s] Ending "BindLib:" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1062.1M, current mem=1062.1M)
+[03/25 13:38:16     10s] Starting recursive module instantiation check.
+[03/25 13:38:16     10s] No recursion found.
+[03/25 13:38:16     10s] Building hierarchical netlist for Cell cic ...
+[03/25 13:38:16     10s] *** Netlist is unique.
+[03/25 13:38:16     10s] Setting Std. cell height to 10080 DBU (smallest netlist inst).
+[03/25 13:38:16     10s] ** info: there are 492 modules.
+[03/25 13:38:16     10s] ** info: there are 472 stdCell insts.
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] *** Memory Usage v#1 (Current mem = 1173.586M, initial mem = 491.887M) ***
+[03/25 13:38:16     10s] *info: set bottom ioPad orient R0
+[03/25 13:38:16     10s] **WARN: (IMPFP-3961):	The techSite 'corner' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[03/25 13:38:16     10s] Type 'man IMPFP-3961' for more detail.
+[03/25 13:38:16     10s] **WARN: (IMPFP-3961):	The techSite 'pad' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[03/25 13:38:16     10s] Type 'man IMPFP-3961' for more detail.
+[03/25 13:38:16     10s] Horizontal Layer M1 offset = 560 (derived)
+[03/25 13:38:16     10s] Vertical Layer M2 offset = 660 (derived)
+[03/25 13:38:16     10s] Start create_tracks
+[03/25 13:38:16     10s] Generated pitch 0.99 in Metal6 is different from 1.32 defined in technology file in preferred direction.
+[03/25 13:38:16     10s] Generated pitch 0.56 in Metal5 is different from 1.12 defined in technology file in preferred direction.
+[03/25 13:38:16     10s] Loading preference file /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/gui.pref.tcl ...
+[03/25 13:38:16     10s] ##  Process: 180           (User Set)               
+[03/25 13:38:16     10s] ##     Node: (not set)                           
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] ##  Check design process and node:  
+[03/25 13:38:16     10s] ##  Design tech node is not set.
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+[03/25 13:38:16     10s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[03/25 13:38:16     10s] 	For post_route extract_rc_effort_level low extraction, the coupling_c_th value will be used only when the extract_rc_cap_filter_mode parameter of the set_db command is set to relative_and_coupling or relative_or_coupling. Default value of extract_rc_cap_filter_mode parameter in post_route extraction extract_rc_effort_level low is relative_only.
+[03/25 13:38:16     10s] 	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+[03/25 13:38:16     10s] 	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+[03/25 13:38:16     10s] Effort level <high> specified for tdgp_reg2reg_default path_group
+[03/25 13:38:16     10s] Effort level <high> specified for reg2reg path_group
+[03/25 13:38:16     10s] Effort level <high> specified for reg2cgate path_group
+[03/25 13:38:16     10s] **WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+[03/25 13:38:16     10s] #WARNING (NRIF-90) Option set_db route_design_bottom_routing_layer is obsolete. It will continue to work for the current release. To ensure compatibility with future releases, use option set_db design_bottom_routing_layer instead.
+[03/25 13:38:16     10s] #WARNING (NRIF-91) Option set_db route_design_top_routing_layer is obsolete. It will continue to work for the current release. To ensure compatibility with future releases, use option set_db design_top_routing_layer instead.
+[03/25 13:38:16     10s] add_rings command will ignore shorts while creating rings.
+[03/25 13:38:16     10s] add_rings command will disallow rings to go over rows.
+[03/25 13:38:16     10s] add_rings command will consider rows while creating rings.
+[03/25 13:38:16     10s] The ring targets are set to core/block ring wires.
+[03/25 13:38:16     10s] add_stripes will allow jog to connect padcore ring and will not allow jog to connect block ring.
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] Stripe will break at block ring.
+[03/25 13:38:16     10s] Stripes will not extend to closest target.
+[03/25 13:38:16     10s] When breaking rings, the power planner will consider the existence of blocks.
+[03/25 13:38:16     10s] add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+[03/25 13:38:16     10s] The entire stripe set will break at the domain if one of the nets is not in the domain.
+[03/25 13:38:16     10s] Stripes will not be created over regions without power planning wires.
+[03/25 13:38:16     10s] Offset for stripe breaking is set to 0.
+[03/25 13:38:16     10s] Stripes will stop at the boundary of the specified area.
+[03/25 13:38:16     10s] The power planner will set stripe antenna targets to none (no trimming allowed).
+[03/25 13:38:16     10s] **WARN: (IMPPSP-1003):	Found use of 'route_early_global_top_routing_layer'. This will continue to work in this release; however, it is recommended to use 'design_top_routing_layer' instead.
+[03/25 13:38:16     10s] **WARN: (IMPPSP-1003):	Found use of 'route_early_global_bottom_routing_layer'. This will continue to work in this release; however, it is recommended to use 'design_bottom_routing_layer' instead.
+[03/25 13:38:16     10s] Change floorplan default-technical-site to 'tsm3site'.
+[03/25 13:38:16     10s] Extraction setup Delayed 
+[03/25 13:38:16     10s] *Info: initialize multi-corner CTS.
+[03/25 13:38:16     10s] Reading fast timing library '/home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/mmmc/fast.lib' ...
+[03/25 13:38:16     10s] **WARN: (TECHLIB-302):	No function defined for cell 'HOLDX1'. The cell will only be used for analysis. (File /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/mmmc/fast.lib)
+[03/25 13:38:16     10s] Read 462 cells in library 'tsmc18' 
+[03/25 13:38:16     10s] Ignored 8 cells in library 'tsmc18' because they are not defined in the LEF file, and they are not used in the Verilog netlist.
+[03/25 13:38:16     10s] Ending "SetAnalysisView" (total cpu=0:00:00.2, real=0:00:00.0, peak res=1384.3M, current mem=1136.6M)
+[03/25 13:38:16     10s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign Begin ...
+[03/25 13:38:16     10s] Summary for sequential cells identification: 
+[03/25 13:38:16     10s]   Identified SBFF number: 116
+[03/25 13:38:16     10s]   Identified MBFF number: 0
+[03/25 13:38:16     10s]   Identified SB Latch number: 0
+[03/25 13:38:16     10s]   Identified MB Latch number: 0
+[03/25 13:38:16     10s]   Not identified SBFF number: 24
+[03/25 13:38:16     10s]   Not identified MBFF number: 0
+[03/25 13:38:16     10s]   Not identified SB Latch number: 0
+[03/25 13:38:16     10s]   Not identified MB Latch number: 0
+[03/25 13:38:16     10s]   Number of sequential cells which are not FFs: 38
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign End ...
+[03/25 13:38:16     10s] Total number of combinational cells: 266
+[03/25 13:38:16     10s] Total number of sequential cells: 178
+[03/25 13:38:16     10s] Total number of tristate cells: 18
+[03/25 13:38:16     10s] Total number of level shifter cells: 0
+[03/25 13:38:16     10s] Total number of power gating cells: 0
+[03/25 13:38:16     10s] Total number of isolation cells: 0
+[03/25 13:38:16     10s] Total number of power switch cells: 0
+[03/25 13:38:16     10s] Total number of pulse generator cells: 0
+[03/25 13:38:16     10s] Total number of always on buffers: 0
+[03/25 13:38:16     10s] Total number of retention cells: 0
+[03/25 13:38:16     10s] List of usable buffers: BUFX2 BUFX1 BUFX12 BUFX16 BUFX20 BUFX3 BUFX4 BUFX8 BUFXL CLKBUFX2 CLKBUFX1 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX8 CLKBUFXL
+[03/25 13:38:16     10s] Total number of usable buffers: 18
+[03/25 13:38:16     10s] List of unusable buffers:
+[03/25 13:38:16     10s] Total number of unusable buffers: 0
+[03/25 13:38:16     10s] List of usable inverters: RFRDX2 RFRDX1 RFRDX4 CLKINVX2 CLKINVX1 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 CLKINVX4 CLKINVX8 CLKINVXL INVX1 INVX2 INVX12 INVX16 INVX20 INVX3 INVXL INVX4 INVX8
+[03/25 13:38:16     10s] Total number of usable inverters: 21
+[03/25 13:38:16     10s] List of unusable inverters:
+[03/25 13:38:16     10s] Total number of unusable inverters: 0
+[03/25 13:38:16     10s] List of identified usable delay cells: DLY2X1 DLY1X1 DLY4X1 DLY3X1
+[03/25 13:38:16     10s] Total number of identified usable delay cells: 4
+[03/25 13:38:16     10s] List of identified unusable delay cells:
+[03/25 13:38:16     10s] Total number of identified unusable delay cells: 0
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] TimeStamp Deleting Cell Server Begin ...
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] TimeStamp Deleting Cell Server End ...
+[03/25 13:38:16     10s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1386.9M, current mem=1386.8M)
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign Begin ...
+[03/25 13:38:16     10s] Summary for sequential cells identification: 
+[03/25 13:38:16     10s]   Identified SBFF number: 116
+[03/25 13:38:16     10s]   Identified MBFF number: 0
+[03/25 13:38:16     10s]   Identified SB Latch number: 0
+[03/25 13:38:16     10s]   Identified MB Latch number: 0
+[03/25 13:38:16     10s]   Not identified SBFF number: 24
+[03/25 13:38:16     10s]   Not identified MBFF number: 0
+[03/25 13:38:16     10s]   Not identified SB Latch number: 0
+[03/25 13:38:16     10s]   Not identified MB Latch number: 0
+[03/25 13:38:16     10s]   Number of sequential cells which are not FFs: 38
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] Trim Metal Layers:
+[03/25 13:38:16     10s]  Visiting view : func_nom_nom
+[03/25 13:38:16     10s]    : PowerDomain = none : Weighted F : unweighted  = 33.60 (1.000) with rcCorner = 0
+[03/25 13:38:16     10s]    : PowerDomain = none : Weighted F : unweighted  = 29.90 (1.000) with rcCorner = -1
+[03/25 13:38:16     10s]  Visiting view : func_nom_nom
+[03/25 13:38:16     10s]    : PowerDomain = none : Weighted F : unweighted  = 33.60 (1.000) with rcCorner = 0
+[03/25 13:38:16     10s]    : PowerDomain = none : Weighted F : unweighted  = 29.90 (1.000) with rcCorner = -1
+[03/25 13:38:16     10s]  Visiting view : func_fast_min
+[03/25 13:38:16     10s]    : PowerDomain = none : Weighted F : unweighted  = 25.40 (1.000) with rcCorner = 0
+[03/25 13:38:16     10s]    : PowerDomain = none : Weighted F : unweighted  = 22.80 (1.000) with rcCorner = -1
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign End ...
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] TimeStamp Deleting Cell Server Begin ...
+[03/25 13:38:16     10s] 
+[03/25 13:38:16     10s] TimeStamp Deleting Cell Server End ...
+[03/25 13:38:16     10s] Reading floorplan file - /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic.fp.gz (mem = 1476.6M).
+[03/25 13:38:16     10s] % Begin Load floorplan data ... (date=03/25 13:38:16, mem=1388.6M)
+[03/25 13:38:16     11s] *info: reset 690 existing net BottomPreferredLayer and AvoidDetour
+[03/25 13:38:16     11s] Deleting old partition specification.
+[03/25 13:38:17     11s] Set FPlanBox to (0 0 506880 473760)
+[03/25 13:38:17     11s] **WARN: (IMPFP-3961):	The techSite 'corner' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[03/25 13:38:17     11s] Type 'man IMPFP-3961' for more detail.
+[03/25 13:38:17     11s] **WARN: (IMPFP-3961):	The techSite 'pad' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[03/25 13:38:17     11s] Type 'man IMPFP-3961' for more detail.
+[03/25 13:38:17     11s] Horizontal Layer M1 offset = 560 (derived)
+[03/25 13:38:17     11s] Vertical Layer M2 offset = 660 (derived)
+[03/25 13:38:17     11s] Start create_tracks
+[03/25 13:38:17     11s] Generated pitch 0.99 in Metal6 is different from 1.32 defined in technology file in preferred direction.
+[03/25 13:38:17     11s] Generated pitch 0.56 in Metal5 is different from 1.12 defined in technology file in preferred direction.
+[03/25 13:38:17     11s]  ... processed partition successfully.
+[03/25 13:38:17     11s] Reading binary special route file /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic.fp.spr.gz (Created by Innovus v21.15-s110_1 on Fri Feb  6 12:48:05 2026, version: 1)
+[03/25 13:38:17     11s] Convert 0 swires and 0 svias from compressed groups
+[03/25 13:38:17     11s] 32 swires and 114 svias were compressed
+[03/25 13:38:17     11s] 32 swires and 106 svias were decompressed from small or sparse groups
+[03/25 13:38:17     11s] Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1388.6M, current mem=1388.6M)
+[03/25 13:38:17     11s] There are 9 nets with weight being set
+[03/25 13:38:17     11s] There are 9 nets with bottomPreferredRoutingLayer being set
+[03/25 13:38:17     11s] There are 9 nets with avoidDetour being set
+[03/25 13:38:17     11s] Extracting standard cell pins and blockage ...... 
+[03/25 13:38:17     11s] Pin and blockage extraction finished
+[03/25 13:38:17     11s] Delete all existing relative floorplan constraints.
+[03/25 13:38:17     11s] % End Load floorplan data ... (date=03/25 13:38:17, total cpu=0:00:00.0, real=0:00:01.0, peak res=1391.2M, current mem=1391.2M)
+[03/25 13:38:17     11s] Reading congestion map file /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic.route.congmap.gz ...
+[03/25 13:38:17     11s] % Begin Load SymbolTable ... (date=03/25 13:38:17, mem=1391.5M)
+[03/25 13:38:17     11s] routingBox: (0 0) (506880 473760)
+[03/25 13:38:17     11s] coreBox:    (40920 40320) (465960 433440)
+[03/25 13:38:17     11s] Suppress "**WARN ..." messages.
+[03/25 13:38:17     11s] Un-suppress "**WARN ..." messages.
+[03/25 13:38:17     11s] % End Load SymbolTable ... (date=03/25 13:38:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1392.4M, current mem=1392.4M)
+[03/25 13:38:17     11s] Loading place ...
+[03/25 13:38:17     11s] % Begin Load placement data ... (date=03/25 13:38:17, mem=1392.4M)
+[03/25 13:38:17     11s] Reading placement file - /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic.place.gz.
+[03/25 13:38:17     11s] ** Reading stdCellPlacement_binary (Created by Innovus v21.15-s110_1 on Fri Feb  6 12:48:05 2026, version# 2) ...
+[03/25 13:38:17     11s] Read Views for adaptive view pruning ...
+[03/25 13:38:17     11s] Read 0 views from Binary DB for adaptive view pruning
+[03/25 13:38:17     11s] *** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1478.6M) ***
+[03/25 13:38:17     11s] Total net length = 1.284e+04 (5.220e+03 7.622e+03) (ext = 7.512e+02)
+[03/25 13:38:17     11s] % End Load placement data ... (date=03/25 13:38:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1393.4M, current mem=1393.4M)
+[03/25 13:38:17     11s] Reading PG file /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic.pg.gz, version#2, (Created by Innovus v21.15-s110_1 on       Fri Feb  6 12:48:05 2026)
+[03/25 13:38:17     11s] *** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1475.6M) ***
+[03/25 13:38:17     11s] % Begin Load routing data ... (date=03/25 13:38:17, mem=1393.7M)
+[03/25 13:38:17     11s] Reading routing file - /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic.route.gz.
+[03/25 13:38:17     11s] Reading Innovus routing data (Created by Innovus v21.15-s110_1 on Fri Feb  6 12:48:05 2026 Format: 20.1) ...
+[03/25 13:38:17     11s] *** Total 687 nets are successfully restored.
+[03/25 13:38:17     11s] *** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1475.6M) ***
+[03/25 13:38:17     11s] % End Load routing data ... (date=03/25 13:38:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1395.6M, current mem=1394.8M)
+[03/25 13:38:17     11s] TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+[03/25 13:38:17     11s] Reading property file /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic.prop
+[03/25 13:38:17     11s] *** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1478.6M) ***
+[03/25 13:38:17     11s] Reading dirtyarea snapshot file /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic.db.da.gz (Create by Innovus v21.15-s110_1 on Fri Feb  6 12:48:06 2026, version: 4).
+[03/25 13:38:17     11s] add_rings command will ignore shorts while creating rings.
+[03/25 13:38:17     11s] add_rings command will disallow rings to go over rows.
+[03/25 13:38:17     11s] add_rings command will consider rows while creating rings.
+[03/25 13:38:17     11s] The ring targets are set to core/block ring wires.
+[03/25 13:38:17     11s] add_stripes will allow jog to connect padcore ring and will not allow jog to connect block ring.
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] Stripe will break at block ring.
+[03/25 13:38:17     11s] Stripes will not extend to closest target.
+[03/25 13:38:17     11s] When breaking rings, the power planner will consider the existence of blocks.
+[03/25 13:38:17     11s] add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+[03/25 13:38:17     11s] The entire stripe set will break at the domain if one of the nets is not in the domain.
+[03/25 13:38:17     11s] Stripes will not be created over regions without power planning wires.
+[03/25 13:38:17     11s] Offset for stripe breaking is set to 0.
+[03/25 13:38:17     11s] Stripes will stop at the boundary of the specified area.
+[03/25 13:38:17     11s] The power planner will set stripe antenna targets to none (no trimming allowed).
+[03/25 13:38:17     11s] Change floorplan default-technical-site to 'tsm3site'.
+[03/25 13:38:17     11s] #WARNING (NRIF-90) Option set_db route_design_bottom_routing_layer is obsolete. It will continue to work for the current release. To ensure compatibility with future releases, use option set_db design_bottom_routing_layer instead.
+[03/25 13:38:17     11s] #WARNING (NRIF-91) Option set_db route_design_top_routing_layer is obsolete. It will continue to work for the current release. To ensure compatibility with future releases, use option set_db design_top_routing_layer instead.
+[03/25 13:38:17     11s] **WARN: (IMPPSP-1003):	Found use of 'route_early_global_bottom_routing_layer'. This will continue to work in this release; however, it is recommended to use 'design_bottom_routing_layer' instead.
+[03/25 13:38:17     11s] **WARN: (IMPPSP-1003):	Found use of 'route_early_global_top_routing_layer'. This will continue to work in this release; however, it is recommended to use 'design_top_routing_layer' instead.
+[03/25 13:38:17     11s] eee: readRCCornerMetaData, file read unsuccessful: /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/extraction/extractionMetaData.gz
+[03/25 13:38:17     11s] Extraction setup Started 
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] Trim Metal Layers:
+[03/25 13:38:17     11s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[03/25 13:38:17     11s] **WARN: (IMPEXT-6202):	In addition to the technology file, the capacitance table file is specified for all the RC corners. If the technology file  is already specified for all the RC corners, the capacitance table file is not required for pre_route and post_route extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command to enable the technology file to be used for pre_route and post_route (effort level medium/high/signoff) extraction engines.
+[03/25 13:38:17     11s] Type 'man IMPEXT-6202' for more detail.
+[03/25 13:38:17     11s] Reading Capacitance Table File /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/mmmc/t018s6mlv.capTbl ...
+[03/25 13:38:17     11s] Cap table was created using Encounter 10.10-s002_1.
+[03/25 13:38:17     11s] Process name: t018s6mm.
+[03/25 13:38:17     11s] Importing multi-corner RC tables ... 
+[03/25 13:38:17     11s] Summary of Active RC-Corners : 
+[03/25 13:38:17     11s]  
+[03/25 13:38:17     11s]  Analysis View: func_nom_nom
+[03/25 13:38:17     11s]     RC-Corner Name        : rc_nom
+[03/25 13:38:17     11s]     RC-Corner Index       : 0
+[03/25 13:38:17     11s]     RC-Corner Temperature : 25 Celsius
+[03/25 13:38:17     11s]     RC-Corner Cap Table   : '/home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/mmmc/t018s6mlv.capTbl'
+[03/25 13:38:17     11s]     RC-Corner PreRoute Res Factor         : 1
+[03/25 13:38:17     11s]     RC-Corner PreRoute Cap Factor         : 1
+[03/25 13:38:17     11s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[03/25 13:38:17     11s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[03/25 13:38:17     11s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[03/25 13:38:17     11s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[03/25 13:38:17     11s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[03/25 13:38:17     11s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel medium)]
+[03/25 13:38:17     11s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel medium)]
+[03/25 13:38:17     11s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 	[Derived from postRoute_xcap (effortLevel medium)]
+[03/25 13:38:17     11s]     RC-Corner Technology file: '/home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/mmmc/rc_nom/t018s6mm.tch'
+[03/25 13:38:17     11s]  
+[03/25 13:38:17     11s]  Analysis View: func_fast_min
+[03/25 13:38:17     11s]     RC-Corner Name        : rc_nom
+[03/25 13:38:17     11s]     RC-Corner Index       : 0
+[03/25 13:38:17     11s]     RC-Corner Temperature : 25 Celsius
+[03/25 13:38:17     11s]     RC-Corner Cap Table   : '/home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/mmmc/t018s6mlv.capTbl'
+[03/25 13:38:17     11s]     RC-Corner PreRoute Res Factor         : 1
+[03/25 13:38:17     11s]     RC-Corner PreRoute Cap Factor         : 1
+[03/25 13:38:17     11s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[03/25 13:38:17     11s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[03/25 13:38:17     11s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[03/25 13:38:17     11s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[03/25 13:38:17     11s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[03/25 13:38:17     11s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel medium)]
+[03/25 13:38:17     11s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel medium)]
+[03/25 13:38:17     11s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 	[Derived from postRoute_xcap (effortLevel medium)]
+[03/25 13:38:17     11s]     RC-Corner Technology file: '/home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/libs/mmmc/rc_nom/t018s6mm.tch'
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] Trim Metal Layers:
+[03/25 13:38:17     11s] LayerId::1 widthSet size::5
+[03/25 13:38:17     11s] LayerId::2 widthSet size::4
+[03/25 13:38:17     11s] LayerId::3 widthSet size::4
+[03/25 13:38:17     11s] LayerId::4 widthSet size::4
+[03/25 13:38:17     11s] LayerId::5 widthSet size::4
+[03/25 13:38:17     11s] LayerId::6 widthSet size::3
+[03/25 13:38:17     11s] eee: pegSigSF::1.070000
+[03/25 13:38:17     11s] Initializing multi-corner capacitance tables ... 
+[03/25 13:38:17     11s] Initializing multi-corner resistance tables ...
+[03/25 13:38:17     11s] eee: l::1 avDens::0.095199 usedTrk::214.198691 availTrk::2250.000000 sigTrk::214.198691
+[03/25 13:38:17     11s] eee: l::2 avDens::0.099829 usedTrk::190.582856 availTrk::1909.090909 sigTrk::190.582856
+[03/25 13:38:17     11s] eee: l::3 avDens::0.060894 usedTrk::137.011171 availTrk::2250.000000 sigTrk::137.011171
+[03/25 13:38:17     11s] eee: l::4 avDens::0.013813 usedTrk::24.259921 availTrk::1756.363636 sigTrk::24.259921
+[03/25 13:38:17     11s] eee: l::5 avDens::0.031005 usedTrk::69.761052 availTrk::2250.000000 sigTrk::69.761052
+[03/25 13:38:17     11s] eee: l::6 avDens::0.046282 usedTrk::58.904762 availTrk::1272.727273 sigTrk::58.904762
+[03/25 13:38:17     11s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=1.000000 uaWlH=0.005329 aWlH=0.000000 lMod=0 pMax=0.811200 pMod=83 wcR=0.500000 newSi=0.001600 wHLS=1.250000 siPrev=0 viaL=0.000000
+[03/25 13:38:17     11s] Start generating vias ..
+[03/25 13:38:17     11s] #create default rule from bind_ndr_rule rule=0x7fd471c62060 0x7fd45c2c5538
+[03/25 13:38:17     11s] ### import design signature (1): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1
+[03/25 13:38:17     11s] #Skip building auto via since it is not turned on.
+[03/25 13:38:17     11s] Extracting standard cell pins and blockage ...... 
+[03/25 13:38:17     11s] Pin and blockage extraction finished
+[03/25 13:38:17     11s] Via generation completed.
+[03/25 13:38:17     11s] % Begin Load power constraints ... (date=03/25 13:38:17, mem=1402.1M)
+[03/25 13:38:17     11s] source /home/auralab/anuj_digital/cic_adi/workspace/DBS/final.db/cic_power_constraints.tcl
+[03/25 13:38:17     11s] 'set_default_switching_activity' finished successfully.
+[03/25 13:38:17     11s] % End Load power constraints ... (date=03/25 13:38:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1409.2M, current mem=1409.2M)
+[03/25 13:38:17     11s] % Begin load AAE data ... (date=03/25 13:38:17, mem=1446.2M)
+[03/25 13:38:17     11s] AAE DB initialization (MEM=1555.84 CPU=0:00:00.0 REAL=0:00:00.0) 
+[03/25 13:38:17     11s] % End load AAE data ... (date=03/25 13:38:17, total cpu=0:00:00.3, real=0:00:00.0, peak res=1452.6M, current mem=1452.6M)
+[03/25 13:38:17     11s] Restoring CCOpt config...
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign Begin ...
+[03/25 13:38:17     11s] Summary for sequential cells identification: 
+[03/25 13:38:17     11s]   Identified SBFF number: 116
+[03/25 13:38:17     11s]   Identified MBFF number: 0
+[03/25 13:38:17     11s]   Identified SB Latch number: 0
+[03/25 13:38:17     11s]   Identified MB Latch number: 0
+[03/25 13:38:17     11s]   Not identified SBFF number: 24
+[03/25 13:38:17     11s]   Not identified MBFF number: 0
+[03/25 13:38:17     11s]   Not identified SB Latch number: 0
+[03/25 13:38:17     11s]   Not identified MB Latch number: 0
+[03/25 13:38:17     11s]   Number of sequential cells which are not FFs: 38
+[03/25 13:38:17     11s]  Visiting view : func_nom_nom
+[03/25 13:38:17     11s]    : PowerDomain = none : Weighted F : unweighted  = 33.40 (1.000) with rcCorner = 0
+[03/25 13:38:17     11s]    : PowerDomain = none : Weighted F : unweighted  = 29.90 (1.000) with rcCorner = -1
+[03/25 13:38:17     11s]  Visiting view : func_nom_nom
+[03/25 13:38:17     11s]    : PowerDomain = none : Weighted F : unweighted  = 33.40 (1.000) with rcCorner = 0
+[03/25 13:38:17     11s]    : PowerDomain = none : Weighted F : unweighted  = 29.90 (1.000) with rcCorner = -1
+[03/25 13:38:17     11s]  Visiting view : func_fast_min
+[03/25 13:38:17     11s]    : PowerDomain = none : Weighted F : unweighted  = 25.10 (1.000) with rcCorner = 0
+[03/25 13:38:17     11s]    : PowerDomain = none : Weighted F : unweighted  = 22.80 (1.000) with rcCorner = -1
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign End ...
+[03/25 13:38:17     11s]   Extracting original clock gating for clk...
+[03/25 13:38:17     11s]     clock_tree clk contains 263 sinks and 3 clock gates.
+[03/25 13:38:17     11s]   Extracting original clock gating for clk done.
+[03/25 13:38:17     11s]   The skew group clk/func was created. It contains 263 sinks and 1 sources.
+[03/25 13:38:17     11s]   The skew group clk/func was created. It contains 263 sinks and 1 sources.
+[03/25 13:38:17     11s] Restoring CCOpt config done.
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] TimeStamp Deleting Cell Server Begin ...
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] TimeStamp Deleting Cell Server End ...
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign Begin ...
+[03/25 13:38:17     11s] Summary for sequential cells identification: 
+[03/25 13:38:17     11s]   Identified SBFF number: 116
+[03/25 13:38:17     11s]   Identified MBFF number: 0
+[03/25 13:38:17     11s]   Identified SB Latch number: 0
+[03/25 13:38:17     11s]   Identified MB Latch number: 0
+[03/25 13:38:17     11s]   Not identified SBFF number: 24
+[03/25 13:38:17     11s]   Not identified MBFF number: 0
+[03/25 13:38:17     11s]   Not identified SB Latch number: 0
+[03/25 13:38:17     11s]   Not identified MB Latch number: 0
+[03/25 13:38:17     11s]   Number of sequential cells which are not FFs: 38
+[03/25 13:38:17     11s] Total number of combinational cells: 266
+[03/25 13:38:17     11s] Total number of sequential cells: 178
+[03/25 13:38:17     11s] Total number of tristate cells: 18
+[03/25 13:38:17     11s] Total number of level shifter cells: 0
+[03/25 13:38:17     11s] Total number of power gating cells: 0
+[03/25 13:38:17     11s] Total number of isolation cells: 0
+[03/25 13:38:17     11s] Total number of power switch cells: 0
+[03/25 13:38:17     11s] Total number of pulse generator cells: 0
+[03/25 13:38:17     11s] Total number of always on buffers: 0
+[03/25 13:38:17     11s] Total number of retention cells: 0
+[03/25 13:38:17     11s] List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 BUFX3 BUFX4 BUFX8 CLKBUFX2 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX8
+[03/25 13:38:17     11s] Total number of usable buffers: 14
+[03/25 13:38:17     11s] List of unusable buffers: BUFX1 BUFXL CLKBUFX1 CLKBUFXL
+[03/25 13:38:17     11s] Total number of unusable buffers: 4
+[03/25 13:38:17     11s] List of usable inverters: CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 CLKINVX4 CLKINVX8 INVX2 INVX12 INVX16 INVX20 INVX3 INVX4 INVX8
+[03/25 13:38:17     11s] Total number of usable inverters: 14
+[03/25 13:38:17     11s] List of unusable inverters: RFRDX2 RFRDX1 RFRDX4 CLKINVX1 CLKINVXL INVX1 INVXL
+[03/25 13:38:17     11s] Total number of unusable inverters: 7
+[03/25 13:38:17     11s] List of identified usable delay cells:[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign End ...
+
+[03/25 13:38:17     11s] Total number of identified usable delay cells: 0
+[03/25 13:38:17     11s] List of identified unusable delay cells: DLY2X1 DLY1X1 DLY4X1 DLY3X1
+[03/25 13:38:17     11s] Total number of identified unusable delay cells: 4
+[03/25 13:38:17     11s] All delay cells are dont_use. Buffers will be used to fix hold violations.
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] TimeStamp Deleting Cell Server Begin ...
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] TimeStamp Deleting Cell Server End ...
+[03/25 13:38:17     11s] **WARN: (IMPCTE-107):	The following globals have been obsoleted since version . They will be removed in the next release. 
+[03/25 13:38:17     11s] timing_enable_separate_device_slew_effect_sensitivities
+[03/25 13:38:17     11s] #% End load design ... (date=03/25 13:38:17, total cpu=0:00:01.7, real=0:00:02.0, peak res=1476.7M, current mem=1460.0M)
+[03/25 13:38:17     11s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] *** Summary of all messages that are not suppressed in this session:
+[03/25 13:38:17     11s] Severity  ID               Count  Summary                                  
+[03/25 13:38:17     11s] WARNING   IMPLF-200            4  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[03/25 13:38:17     11s] WARNING   IMPLF-201           50  Pin '%s' in macro '%s' has no ANTENNADIF...
+[03/25 13:38:17     11s] WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+[03/25 13:38:17     11s] WARNING   IMPDBTCL-321         1  The attribute '%s' still works but will ...
+[03/25 13:38:17     11s] WARNING   IMPEXT-6202          1  In addition to the technology file, the ...
+[03/25 13:38:17     11s] WARNING   IMPVL-159          924  Pin '%s' of cell '%s' is defined in LEF ...
+[03/25 13:38:17     11s] WARNING   IMPCTE-107           1  The following globals have been obsolete...
+[03/25 13:38:17     11s] WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+[03/25 13:38:17     11s] WARNING   IMPUDM-33            3  Global variable "%s" is obsolete and wil...
+[03/25 13:38:17     11s] WARNING   IMPPSP-1003          4  Found use of '%s'. This will continue to...
+[03/25 13:38:17     11s] WARNING   TECHLIB-302          2  No function defined for cell '%s'. The c...
+[03/25 13:38:17     11s] *** Message Summary: 995 warning(s), 0 error(s)
+[03/25 13:38:17     11s] 
+[03/25 13:38:17     11s] 0
+[03/25 13:38:17     11s] @innovus 2> gui_select -point {210.12450 142.91550}
+[03/25 13:38:19     11s] @innovus 3> gui_pan -2.41000 39.46950
+[03/25 13:38:30     12s] @innovus 4> gui_pan -0.58400 44.30650
+[03/25 13:38:33     13s] @innovus 5> gui_pan 8.08850 58.23200
+[03/25 13:38:34     13s] @innovus 6> gui_pan 8.99900 58.87650
+[03/25 13:38:35     14s] @innovus 7> gui_pan 1.59400 57.61800
+[03/25 13:38:36     14s] @innovus 8> gui_pan 2.04100 57.45650
+[03/25 13:38:40     15s] @innovus 9> gui_pan -13.78550 55.05200
+[03/25 13:38:43     15s] @innovus 10> gui_pan -4.72550 70.65500
+[03/25 13:38:44     16s] @innovus 11> gui_pan 7.12550 94.34650
+[03/25 13:38:50     16s] @innovus 12> gui_pan 93.98000 130.31150
+[03/25 13:38:51     17s] @innovus 13> gui_pan -16.96800 88.66600
+[03/25 13:38:52     17s] @innovus 14> gui_pan 7.33700 55.75650
+[03/25 13:38:54     18s] @innovus 15> gui_pan 18.92300 54.28000
+[03/25 13:38:55     18s] @innovus 16> gui_pan -16.12250 49.08000
+[03/25 13:38:56     18s] @innovus 17> gui_pan 0.42600 69.03850
+[03/25 13:38:57     19s] @innovus 18> gui_pan -8.86400 77.82500
+[03/25 13:38:58     19s] @innovus 19> gui_pan 12.69650 91.14050
+[03/25 13:39:00     20s] @innovus 20> gui_pan 13.97400 67.02500
+[03/25 13:39:01     20s] @innovus 21> gui_pan 11.38050 40.19950
+[03/25 13:39:02     21s] @innovus 22> gui_pan 3.21300 18.75450
+[03/25 13:39:04     21s] @innovus 23> gui_pan 10.83900 6.13500
+[03/25 13:39:05     22s] @innovus 24> gui_pan 4.06450 -10.54900
+[03/25 13:39:06     23s] @innovus 25> gui_pan -4.18050 -28.62650
+[03/25 13:39:08     23s] @innovus 26> gui_pan 0.42600 -33.15550
+[03/25 13:39:09     24s] @innovus 27> gui_pan -16.64500 -52.51050
+[03/25 13:39:10     25s] @innovus 28> gui_pan 16.21900 -28.35550
+[03/25 13:39:12     26s] @innovus 29> gui_select -point {176.28550 113.65450}
+[03/25 13:39:13     26s] @innovus 30> gui_pan 0.70750 -57.55950
+[03/25 13:39:17     26s] @innovus 31> gui_pan -0.64550 -57.51000
+[03/25 13:39:26     27s] @innovus 32> gui_pan 1.05500 -57.52250
+[03/25 13:39:29     28s] @innovus 33> set_layer_preference Via12 -is_visible 0
+[03/25 13:39:32     28s] @innovus 34> set_layer_preference Metal2 -is_visible 0
+[03/25 13:39:33     28s] @innovus 35> set_layer_preference Via23 -is_visible 0
+[03/25 13:39:33     28s] @innovus 36> set_layer_preference Metal3 -is_visible 0
+[03/25 13:39:34     28s] @innovus 37> set_layer_preference Via34 -is_visible 0
+[03/25 13:39:34     28s] @innovus 38> set_layer_preference Metal4 -is_visible 0
+[03/25 13:39:35     28s] @innovus 39> set_layer_preference Via45 -is_visible 0
+[03/25 13:39:36     28s] @innovus 40> set_layer_preference Metal5 -is_visible 0
+[03/25 13:39:36     28s] @innovus 41> set_layer_preference Via56 -is_visible 0
+[03/25 13:39:37     28s] @innovus 42> set_layer_preference Metal6 -is_visible 0
+[03/25 13:39:37     28s] @innovus 43> gui_pan -65.63850 -13.63350
+[03/25 13:39:45     29s] @innovus 44> gui_pan -1.03000 63.90200
+[03/25 13:39:50     30s] @innovus 45> gui_select -point {110.34400 173.30250}
+[03/25 13:39:51     30s] @innovus 46> gui_select -point {119.93500 174.15100}
+[03/25 13:39:54     31s] @innovus 47> set_layer_preference Via12 -is_visible 1
+[03/25 13:39:58     31s] @innovus 48> gui_pan 0.62650 65.89650
+[03/25 13:40:01     31s] @innovus 49> gui_pan -0.64200 65.50050
+[03/25 13:40:05     32s] @innovus 50> gui_pan -2.06850 63.02750
+[03/25 13:40:07     33s] @innovus 51> gui_pan -0.46650 64.77150
+[03/25 13:40:09     33s] @innovus 52> gui_select -point {110.18950 173.36050}
+[03/25 13:40:11     33s] @innovus 53> gui_select -point {108.93900 175.03200}
+[03/25 13:40:12     33s] @innovus 54> set_layer_preference Metal2 -is_visible 1
+[03/25 13:40:20     34s] @innovus 55> set_layer_preference Metal1 -is_visible 0
+[03/25 13:40:23     34s] @innovus 56> gui_pan 8.15750 83.57900
+[03/25 13:40:27     34s] @innovus 57> gui_pan 1.55450 107.89550
+[03/25 13:40:34     36s] @innovus 58> gui_pan 17.04500 104.35800
+[03/25 13:40:41     37s] @innovus 59> gui_pan 5.52100 84.09700
+[03/25 13:40:42     37s] @innovus 60> gui_pan 10.38650 84.28850
+[03/25 13:40:52     38s] @innovus 61> gui_pan 5.49850 80.85850
+[03/25 13:40:54     38s] @innovus 62> set_layer_preference Metal3 -is_visible 1
+[03/25 13:40:57     38s] @innovus 63> set_layer_preference Via12 -is_visible 0
+[03/25 13:40:59     38s] @innovus 64> set_layer_preference Metal4 -is_visible 1
+[03/25 13:41:04     39s] @innovus 65> gui_pan 18.61750 84.41650
+[03/25 13:41:07     39s] @innovus 66> set_layer_preference Metal4 -is_visible 0
+[03/25 13:41:10     39s] @innovus 67> set_layer_preference Metal3 -is_visible 0
+[03/25 13:41:10     39s] @innovus 68> set_layer_preference Metal2 -is_visible 0
+[03/25 13:41:11     40s] @innovus 69> set_layer_preference Metal6 -is_visible 1
+[03/25 13:41:12     40s] @innovus 70> set_layer_preference Metal5 -is_visible 1
+[03/25 13:41:13     40s] @innovus 71> gui_pan -7.89500 73.16050
+[03/25 13:41:15     40s] @innovus 72> gui_pan -2.95100 25.61950
+[03/25 13:41:16     41s] @innovus 73> set_layer_preference Metal6 -is_visible 0
+[03/25 13:41:18     41s] @innovus 74> set_layer_preference Metal5 -is_visible 0
+[03/25 13:41:19     41s] @innovus 75> set_layer_preference Metal4 -is_visible 1
+[03/25 13:41:20     41s] @innovus 76> set_layer_preference Metal3 -is_visible 1
+[03/25 13:41:21     41s] @innovus 77> set_layer_preference Metal2 -is_visible 1
+[03/25 13:41:23     41s] @innovus 78> gui_pan -34.54950 56.56700
+[03/25 13:41:25     42s] @innovus 79> gui_pan 6.16100 116.48500
+[03/25 13:41:25     42s] @innovus 80> gui_pan -9.83700 103.27600
+[03/25 13:41:27     42s] @innovus 81> gui_pan 26.54800 169.48850
+[03/25 13:41:28     43s] @innovus 82> gui_pan 17.46800 129.13050
+[03/25 13:41:29     43s] @innovus 83> gui_pan 27.52350 110.75000
+[03/25 13:41:30     44s] @innovus 84> gui_pan -4.00450 79.41950
+[03/25 13:41:32     44s] @innovus 85> gui_pan 38.23050 83.37750
+[03/25 13:41:33     45s] @innovus 86> gui_pan -6.88450 60.28150
+[03/25 13:41:50     46s] @innovus 87> gui_pan -2.34100 69.07450
+[03/25 13:41:52     46s] @innovus 88> gui_select -point {127.78800 134.21100}
+[03/25 13:41:53     46s] @innovus 89> gui_pan 11.20250 84.49950
+[03/25 13:42:09     47s] @innovus 90> gui_pan -11.53700 101.38700
+[03/25 13:42:10     48s] @innovus 91> gui_pan 3.51150 116.10100
+[03/25 13:42:12     49s] @innovus 92> set_layer_preference Metal1 -is_visible 1
+[03/25 13:42:14     49s] @innovus 93> gui_pan 14.16350 115.60450
+[03/25 13:42:20     50s] @innovus 94> gui_select -point {182.19850 166.23150}
+[03/25 13:42:46     51s] @innovus 95> gui_select -point {179.30750 161.54100}
+[03/25 13:42:49     51s] @innovus 96> gui_pan -3.07300 -5.31200
+[03/25 13:42:56     51s] @innovus 97> gui_pan -50.92050 63.62800
+[03/25 13:43:02     52s] @innovus 98> gui_pan 9.04500 132.94150
+[03/25 13:43:03     53s] @innovus 99> set_layer_preference Metal1 -is_visible 0
+[03/25 13:43:05     53s] @innovus 100> set_layer_preference Metal1 -is_visible 1
+[03/25 13:43:06     53s] @innovus 101> set_layer_preference Via12 -is_visible 1
+[03/25 13:43:07     53s] @innovus 102> gui_select -point {-1.28200 53.26700}
+[03/25 13:43:08     53s] @innovus 103> gui_pan 45.71850 78.13700
+[03/25 13:43:16     54s] @innovus 104> gui_pan 50.18100 126.48600
+[03/25 13:43:19     55s] @innovus 105> gui_pan 26.26150 174.32450
+[03/25 13:43:21     56s] @innovus 106> gui_pan 40.47950 186.53450
+[03/25 13:43:22     57s] @innovus 107> gui_pan 4.85100 145.55350
+[03/25 13:43:23     57s] @innovus 108> gui_pan 4.00800 78.89200
+[03/25 13:43:38     58s] @innovus 109> gui_pan -34.32600 52.54400
+[03/25 13:43:42     59s] @innovus 110> gui_pan -20.07500 59.13000
+[03/25 13:43:43     59s] @innovus 111> gui_pan -7.87250 62.47600
+[03/25 13:43:44     59s] @innovus 112> gui_pan -3.73950 50.47000
+[03/25 13:43:45     60s] @innovus 113> gui_pan -1.37750 42.79400
+[03/25 13:43:45     60s] @innovus 114> gui_pan 1.43350 -40.21500
+[03/25 13:43:49     61s] @innovus 115> gui_pan -17.24300 -43.39200
+[03/25 13:43:50     62s] @innovus 116> gui_pan -15.18950 -35.29350
+[03/25 13:43:51     62s] @innovus 117> gui_pan -9.68700 -33.74400
+[03/25 13:43:51     62s] @innovus 118> gui_pan -1.43350 -34.13150
+[03/25 13:43:52     63s] @innovus 119> gui_pan -2.79000 -35.02300
+[03/25 13:43:54     63s] @innovus 120> gui_select -point {99.18450 67.12050}
+[03/25 13:43:57     63s] @innovus 121> gui_pan 0.02600 -29.23000
+[03/25 13:44:00     65s] @innovus 122> gui_pan 13.21650 -23.60900
+[03/25 13:44:06     65s] @innovus 123> gui_pan 0.00000 65.03650
+[03/25 13:44:09     66s] @innovus 124> gui_pan 18.07150 -11.43450
+[03/25 13:44:13     67s] @innovus 125> gui_pan 14.49550 -95.22450
+[03/25 13:44:16     68s] @innovus 126> gui_select -point {195.39700 65.91050}
+[03/25 13:44:17     68s] @innovus 127> gui_select -point {195.82350 66.91800}
+[03/25 13:44:18     68s] @innovus 128> gui_pan 15.64850 -121.03000
+[03/25 13:44:20     69s] @innovus 129> gui_select -point {220.18300 57.31350}
+[03/25 13:44:21     69s] @innovus 130> gui_select -point {220.51200 56.58850}
+[03/25 13:44:22     69s] @innovus 131> gui_pan 11.20150 -136.11850
+[03/25 13:44:23     69s] @innovus 132> gui_pan -4.13200 -159.62350
+[03/25 13:44:28     70s] @innovus 133> gui_pan -1.98550 -92.16850
+[03/25 13:44:30     71s] @innovus 134> gui_select -point {188.03200 57.49400}
+[03/25 13:44:36     71s] @innovus 135> gui_pan -13.10750 -78.20800
+[03/25 13:44:44     72s] @innovus 136> gui_pan -14.15600 -35.74000
+[03/25 13:44:44     72s] @innovus 137> gui_pan -15.48100 -1.85650
+[03/25 13:44:45     73s] @innovus 138> gui_pan -22.73800 25.11450
+[03/25 13:44:46     73s] @innovus 139> gui_pan -17.13350 90.26000
+[03/25 13:44:48     74s] @innovus 140> gui_pan 162.86900 287.00200
+[03/25 13:44:49     74s] @innovus 141> gui_pan 25.79900 86.71450
+[03/25 13:44:50     75s] @innovus 142> exit
+
+[03/25 13:44:54     75s] 
+[03/25 13:44:54     75s] *** Memory Usage v#1 (Current mem = 2031.219M, initial mem = 491.887M) ***
+[03/25 13:44:54     75s] 
+[03/25 13:44:54     75s] *** Summary of all messages that are not suppressed in this session:
+[03/25 13:44:54     75s] Severity  ID               Count  Summary                                  
+[03/25 13:44:54     75s] WARNING   IMPLF-200            4  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[03/25 13:44:54     75s] WARNING   IMPLF-201           50  Pin '%s' in macro '%s' has no ANTENNADIF...
+[03/25 13:44:54     75s] WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+[03/25 13:44:54     75s] WARNING   IMPDBTCL-321         1  The attribute '%s' still works but will ...
+[03/25 13:44:54     75s] WARNING   IMPEXT-6202          1  In addition to the technology file, the ...
+[03/25 13:44:54     75s] WARNING   IMPVL-159          924  Pin '%s' of cell '%s' is defined in LEF ...
+[03/25 13:44:54     75s] WARNING   IMPCTE-107           1  The following globals have been obsolete...
+[03/25 13:44:54     75s] WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+[03/25 13:44:54     75s] WARNING   IMPUDM-33            3  Global variable "%s" is obsolete and wil...
+[03/25 13:44:54     75s] WARNING   IMPPSP-1003          4  Found use of '%s'. This will continue to...
+[03/25 13:44:54     75s] WARNING   TECHLIB-302          2  No function defined for cell '%s'. The c...
+[03/25 13:44:54     75s] *** Message Summary: 995 warning(s), 0 error(s)
+[03/25 13:44:54     75s] 
+[03/25 13:44:54     75s] --- Ending "Innovus" (totcpu=0:01:15, real=0:07:09, mem=2031.2M) ---

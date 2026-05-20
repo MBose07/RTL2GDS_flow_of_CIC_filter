@@ -1,0 +1,18 @@
+//all commands are run from tb folder only 
+
+python3 py/script.py 
+
+//from seperate terminal run 
+
+iverilog tb.v ../hdl/cic.v
+vvp a.out
+
+// back to the python terminal 
+
+python3 ./py/soft_cic.py 
+python3 ./py/check.py 
+
+
+
+
+

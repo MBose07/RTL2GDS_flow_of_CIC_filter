@@ -1,0 +1,1589 @@
+######################################################################
+
+# Created by Genus(TM) Synthesis Solution 21.14-s082_1 on Fri Feb 06 12:17:06 IST 2026
+
+# This file contains the Genus script for design:cic
+
+######################################################################
+
+set_db -quiet information_level 5
+set_db -quiet init_lib_search_path ../lib/
+set_db -quiet design_mode_process 230.0
+set_db -quiet phys_assume_met_fill 0.0
+set_db -quiet map_placed_for_route_early_global false
+set_db -quiet phys_use_invs_extraction true
+set_db -quiet phys_route_time_out 120.0
+set_db -quiet db_units 2000
+set_db -quiet capacitance_per_unit_length_mmmc {}
+set_db -quiet resistance_per_unit_length_mmmc {}
+set_db -quiet lp_insert_clock_gating true
+set_db -quiet runtime_by_stage {{PBS_Generic-Start 0 7 0.0 3.991828} {to_generic 3 10 2 6} {first_condense 1 11 1 8} {PBS_Generic_Opt-Post 4 11 3.702819 7.694647} {{PBS_Generic-Postgen HBO Optimizations} 0 11 0.0 7.694647} {PBS_TechMap-Start 0 12 0.0 8.676398} {{PBS_TechMap-Premap HBO Optimizations} 0 12 0.0 8.676398} {second_condense 0 12 0 9} {reify 2 14 2 11} {global_incr_map 0 14 0 11} {{PBS_Techmap-Global Mapping} 2 14 2.2354819999999993 10.91188} {{PBS_TechMap-Datapath Postmap Operations} 0 14 -0.004094000000000264 10.907786} {{PBS_TechMap-Postmap HBO Optimizations} 0 14 -0.004801000000000499 10.902985} {{PBS_TechMap-Postmap Clock Gating} 0 14 0.0 10.902985} {{PBS_TechMap-Postmap Cleanup} 1 15 -0.004239000000000104 10.898746} {PBS_Techmap-Post_MBCI 0 15 0.0 10.898746} {incr_opt 1 16 0 13} }
+set_db -quiet timing_adjust_tns_of_complex_flops false
+set_db -quiet tinfo_tstamp_file .rs_rdpuser.tstamp
+set_db -quiet metric_enable true
+set_db -quiet script_search_path {. /home/rdpuser/digital_anuj/cic/workspace/}
+set_db -quiet use_area_from_lef true
+set_db -quiet lp_insert_discrete_clock_gating_logic true
+set_db -quiet flow_metrics_snapshot_uuid 2822c7b1-1a4d-4375-861a-928e6a31f578
+set_db -quiet syn_generic_effort high
+set_db -quiet pin:cic/RC_CG_HIER_INST1/g17__5107/A .break_timing_paths clock_gating
+set_db -quiet pin:cic/RC_CG_HIER_INST2/g17__4319/A .break_timing_paths clock_gating
+set_db -quiet pin:cic/RC_CG_HIER_INST3/g17__5526/A .break_timing_paths clock_gating
+set_db -quiet phys_use_segment_parasitics true
+set_db -quiet probabilistic_extraction true
+set_db -quiet ple_correlation_factors {1.9000 2.0000}
+set_db -quiet maximum_interval_of_vias inf
+set_db -quiet layer_aware_buffer true
+set_db -quiet ple_mode global
+set_db -quiet wireload_selection none
+set_db -quiet operating_condition:default_emulate_libset_max/typical/typical .tree_type balanced_tree
+set_db -quiet operating_condition:default_emulate_libset_max/typical/_nominal_ .tree_type balanced_tree
+set_db -quiet operating_condition:default_emulate_libset_max/typical/typical .tree_type balanced_tree
+set_db -quiet operating_condition:default_emulate_libset_max/typical/_nominal_ .tree_type balanced_tree
+# BEGIN MSV SECTION
+# END MSV SECTION
+define_clock -name clk -domain domain_1 -period 100000.0 -divide_period 1 -rise 0 -divide_rise 1 -fall 1 -divide_fall 2 -remove -design design:cic port:cic/clk
+define_cost_group -design design:cic -name cg_enable_group_clk
+define_cost_group -design design:cic -name clk
+external_delay -accumulate -input {0.0 no_value 0.0 no_value} -clock clock:cic/clk -name create_clock_delay_domain_1_clk_R_0 port:cic/clk
+set_db -quiet external_delay:cic/create_clock_delay_domain_1_clk_R_0 .clock_network_latency_included true
+external_delay -accumulate -input {no_value 0.0 no_value 0.0} -clock clock:cic/clk -edge_fall -name create_clock_delay_domain_1_clk_F_0 port:cic/clk
+set_db -quiet external_delay:cic/create_clock_delay_domain_1_clk_F_0 .clock_network_latency_included true
+external_delay -accumulate -output {no_value no_value 0.0 0.0} -clock clock:cic/clk -name clk_gating_check_10 pin:cic/RC_CG_HIER_INST2/g17__4319/A
+set_db -quiet external_delay:cic/clk_gating_check_10 .clock_network_latency_included true
+set_db -quiet external_delay:cic/clk_gating_check_10 .clock_source_latency_included true
+external_delay -accumulate -output {no_value no_value 0.0 0.0} -clock clock:cic/clk -name clk_gating_check_11 pin:cic/RC_CG_HIER_INST1/g17__5107/A
+set_db -quiet external_delay:cic/clk_gating_check_11 .clock_network_latency_included true
+set_db -quiet external_delay:cic/clk_gating_check_11 .clock_source_latency_included true
+external_delay -accumulate -output {no_value no_value 0.0 0.0} -clock clock:cic/clk -name clk_gating_check_12 pin:cic/RC_CG_HIER_INST3/g17__5526/A
+set_db -quiet external_delay:cic/clk_gating_check_12 .clock_network_latency_included true
+set_db -quiet external_delay:cic/clk_gating_check_12 .clock_source_latency_included true
+path_group -paths [specify_paths -lenient -to clock:cic/clk]  -name clk -group cost_group:cic/clk -user_priority -1047552
+path_disable -paths [specify_paths -lenient -from port:cic/rst -to {{inst:cic/d_comb_reg[1][1][0]} {inst:cic/d_comb_reg[2][1][19]} {inst:cic/d_comb_reg[1][1][19]} {inst:cic/d_comb_reg[2][1][0]} {inst:cic/d_comb_reg[0][1][0]} {inst:cic/d_comb_reg[0][1][19]} {inst:cic/d_comb_reg[0][0][2]} {inst:cic/d_comb_reg[0][0][3]} {inst:cic/d_comb_reg[0][0][4]} {inst:cic/d_comb_reg[0][0][5]} {inst:cic/d_comb_reg[0][0][6]} {inst:cic/d_comb_reg[0][0][7]} {inst:cic/d_comb_reg[0][0][8]} {inst:cic/d_comb_reg[0][0][9]} {inst:cic/d_comb_reg[0][0][10]} {inst:cic/d_comb_reg[0][0][11]} {inst:cic/d_comb_reg[0][0][12]} {inst:cic/d_comb_reg[0][0][13]} {inst:cic/d_comb_reg[0][0][14]} {inst:cic/d_comb_reg[0][0][0]} {inst:cic/d_comb_reg[0][0][17]} {inst:cic/d_comb_reg[0][0][18]} {inst:cic/d_comb_reg[0][0][1]} {inst:cic/d_comb_reg[0][0][19]} {inst:cic/d_comb_reg[0][0][15]} {inst:cic/d_comb_reg[0][0][16]} {inst:cic/d_tmp_reg[18]} {inst:cic/d_tmp_reg[14]} {inst:cic/d_tmp_reg[6]} {inst:cic/d_tmp_reg[1]} {inst:cic/d_tmp_reg[2]} {inst:cic/d_tmp_reg[3]} {inst:cic/d_tmp_reg[4]} {inst:cic/d_tmp_reg[5]} {inst:cic/d_tmp_reg[7]} {inst:cic/d_tmp_reg[8]} {inst:cic/d_tmp_reg[9]} {inst:cic/d_tmp_reg[10]} {inst:cic/d_tmp_reg[11]} {inst:cic/d_tmp_reg[12]} {inst:cic/d_tmp_reg[13]} {inst:cic/d_tmp_reg[15]} {inst:cic/d_tmp_reg[16]} {inst:cic/d_tmp_reg[17]} {inst:cic/d_tmp_reg[19]} inst:cic/RC_CG_HIER_INST3/enl_reg {inst:cic/integrator_reg[0][17]} {inst:cic/integrator_reg[0][1]} {inst:cic/integrator_reg[0][2]} {inst:cic/integrator_reg[0][3]} {inst:cic/integrator_reg[0][4]} {inst:cic/integrator_reg[3][15]} {inst:cic/integrator_reg[0][5]} {inst:cic/integrator_reg[0][6]} {inst:cic/integrator_reg[0][7]} {inst:cic/integrator_reg[3][11]} {inst:cic/integrator_reg[0][8]} {inst:cic/integrator_reg[0][9]} {inst:cic/integrator_reg[0][10]} {inst:cic/integrator_reg[3][7]} {inst:cic/integrator_reg[0][11]} {inst:cic/integrator_reg[0][12]} {inst:cic/integrator_reg[0][13]} {inst:cic/integrator_reg[0][14]} {inst:cic/integrator_reg[0][15]} {inst:cic/integrator_reg[0][16]} {inst:cic/integrator_reg[0][0]} {inst:cic/integrator_reg[2][19]} {inst:cic/integrator_reg[0][18]} {inst:cic/integrator_reg[0][19]} {inst:cic/integrator_reg[1][0]} {inst:cic/integrator_reg[2][15]} {inst:cic/integrator_reg[1][1]} {inst:cic/integrator_reg[1][2]} {inst:cic/integrator_reg[1][3]} {inst:cic/integrator_reg[2][11]} {inst:cic/integrator_reg[1][4]} {inst:cic/integrator_reg[1][5]} {inst:cic/integrator_reg[1][6]} {inst:cic/integrator_reg[1][7]} {inst:cic/integrator_reg[1][8]} {inst:cic/integrator_reg[1][9]} {inst:cic/integrator_reg[1][10]} {inst:cic/integrator_reg[2][3]} {inst:cic/integrator_reg[1][11]} {inst:cic/integrator_reg[1][12]} {inst:cic/integrator_reg[2][16]} {inst:cic/integrator_reg[1][14]} {inst:cic/integrator_reg[1][15]} {inst:cic/integrator_reg[1][16]} {inst:cic/integrator_reg[1][17]} {inst:cic/integrator_reg[1][18]} {inst:cic/integrator_reg[1][19]} {inst:cic/integrator_reg[2][0]} {inst:cic/integrator_reg[2][1]} {inst:cic/integrator_reg[2][2]} {inst:cic/integrator_reg[2][4]} {inst:cic/integrator_reg[2][5]} {inst:cic/integrator_reg[2][6]} {inst:cic/integrator_reg[2][7]} {inst:cic/integrator_reg[2][8]} {inst:cic/integrator_reg[2][9]} {inst:cic/integrator_reg[2][10]} {inst:cic/integrator_reg[2][12]} {inst:cic/integrator_reg[2][13]} {inst:cic/integrator_reg[2][14]} {inst:cic/integrator_reg[1][13]} {inst:cic/integrator_reg[2][17]} {inst:cic/integrator_reg[2][18]} {inst:cic/integrator_reg[3][0]} {inst:cic/integrator_reg[3][1]} {inst:cic/integrator_reg[3][2]} {inst:cic/integrator_reg[3][3]} {inst:cic/integrator_reg[3][4]} {inst:cic/integrator_reg[3][5]} {inst:cic/integrator_reg[3][6]} {inst:cic/integrator_reg[3][8]} {inst:cic/integrator_reg[3][9]} {inst:cic/integrator_reg[3][10]} {inst:cic/integrator_reg[3][12]} {inst:cic/integrator_reg[3][13]} {inst:cic/integrator_reg[3][14]} {inst:cic/integrator_reg[3][16]} {inst:cic/integrator_reg[3][17]} {inst:cic/integrator_reg[3][18]} {inst:cic/integrator_reg[3][19]} {inst:cic/d_comb_reg[1][0][0]} {inst:cic/d_comb_reg[1][0][1]} {inst:cic/d_comb_reg[1][0][2]} {inst:cic/d_comb_reg[1][0][3]} {inst:cic/d_comb_reg[1][0][4]} {inst:cic/d_comb_reg[1][0][5]} {inst:cic/d_comb_reg[1][0][6]} {inst:cic/d_comb_reg[1][0][7]} {inst:cic/d_comb_reg[1][0][8]} {inst:cic/d_comb_reg[1][0][9]} {inst:cic/d_comb_reg[1][0][10]} {inst:cic/d_comb_reg[1][0][11]} {inst:cic/d_comb_reg[1][0][12]} {inst:cic/d_comb_reg[1][0][13]} {inst:cic/d_comb_reg[1][0][14]} {inst:cic/d_comb_reg[1][0][15]} {inst:cic/d_comb_reg[1][0][16]} {inst:cic/d_comb_reg[1][0][17]} {inst:cic/d_comb_reg[1][0][18]} {inst:cic/d_comb_reg[1][0][19]} {inst:cic/d_comb_reg[2][0][0]} {inst:cic/d_comb_reg[2][0][1]} {inst:cic/d_comb_reg[2][0][2]} {inst:cic/d_comb_reg[2][0][3]} {inst:cic/d_comb_reg[2][0][4]} {inst:cic/d_comb_reg[2][0][5]} {inst:cic/d_comb_reg[2][0][6]} {inst:cic/d_comb_reg[2][0][7]} {inst:cic/d_comb_reg[2][0][8]} {inst:cic/d_comb_reg[2][0][9]} {inst:cic/d_comb_reg[2][0][10]} {inst:cic/d_comb_reg[2][0][11]} {inst:cic/d_comb_reg[2][0][12]} {inst:cic/d_comb_reg[2][0][13]} {inst:cic/d_comb_reg[2][0][14]} {inst:cic/d_comb_reg[2][0][15]} {inst:cic/d_comb_reg[2][0][16]} {inst:cic/d_comb_reg[2][0][17]} {inst:cic/d_comb_reg[2][0][18]} {inst:cic/d_comb_reg[2][0][19]} {inst:cic/d_comb_reg[3][0][0]} {inst:cic/d_comb_reg[3][0][1]} {inst:cic/d_comb_reg[3][0][2]} {inst:cic/d_comb_reg[3][0][3]} {inst:cic/d_comb_reg[3][0][4]} {inst:cic/d_comb_reg[3][0][5]} {inst:cic/d_comb_reg[3][0][6]} {inst:cic/d_comb_reg[3][0][7]} {inst:cic/d_comb_reg[3][0][8]} {inst:cic/d_comb_reg[3][0][9]} {inst:cic/d_comb_reg[3][0][10]} {inst:cic/d_comb_reg[3][0][11]} {inst:cic/d_comb_reg[3][0][12]} {inst:cic/d_comb_reg[3][0][13]} {inst:cic/d_comb_reg[3][0][14]} {inst:cic/d_comb_reg[3][0][15]} {inst:cic/d_comb_reg[3][0][16]} {inst:cic/d_comb_reg[3][0][17]} {inst:cic/d_comb_reg[3][0][18]} {inst:cic/d_comb_reg[3][0][19]} {inst:cic/d_comb_reg[3][1][0]} {inst:cic/d_comb_reg[3][1][1]} {inst:cic/d_comb_reg[3][1][2]} {inst:cic/d_comb_reg[3][1][3]} {inst:cic/d_comb_reg[3][1][4]} {inst:cic/d_comb_reg[3][1][5]} {inst:cic/d_comb_reg[3][1][6]} {inst:cic/d_comb_reg[3][1][7]} {inst:cic/d_comb_reg[3][1][8]} {inst:cic/d_comb_reg[3][1][9]} {inst:cic/d_comb_reg[3][1][10]} {inst:cic/d_comb_reg[3][1][11]} {inst:cic/d_comb_reg[3][1][12]} {inst:cic/d_comb_reg[3][1][13]} {inst:cic/d_comb_reg[3][1][14]} {inst:cic/d_comb_reg[3][1][15]} {inst:cic/d_comb_reg[3][1][16]} {inst:cic/d_comb_reg[3][1][17]} {inst:cic/d_comb_reg[3][1][18]} {inst:cic/d_comb_reg[3][1][19]} inst:cic/RC_CG_HIER_INST2/enl_reg inst:cic/RC_CG_HIER_INST1/enl_reg {inst:cic/d_comb_reg[2][1][1]} {inst:cic/d_comb_reg[2][1][14]} {inst:cic/d_comb_reg[2][1][7]} {inst:cic/d_comb_reg[2][1][13]} {inst:cic/d_comb_reg[2][1][17]} {inst:cic/d_comb_reg[2][1][9]} {inst:cic/d_comb_reg[2][1][11]} {inst:cic/d_comb_reg[2][1][12]} {inst:cic/d_comb_reg[2][1][6]} {inst:cic/d_comb_reg[2][1][3]} {inst:cic/d_comb_reg[2][1][16]} {inst:cic/d_comb_reg[2][1][8]} {inst:cic/d_comb_reg[2][1][18]} {inst:cic/d_comb_reg[2][1][15]} {inst:cic/d_comb_reg[2][1][10]} {inst:cic/d_comb_reg[2][1][2]} {inst:cic/d_comb_reg[2][1][4]} {inst:cic/d_comb_reg[2][1][5]} {inst:cic/d_comb_reg[1][1][1]} {inst:cic/d_comb_reg[1][1][14]} {inst:cic/d_comb_reg[1][1][7]} {inst:cic/d_comb_reg[1][1][13]} {inst:cic/d_comb_reg[1][1][17]} {inst:cic/d_comb_reg[1][1][9]} {inst:cic/d_comb_reg[1][1][11]} {inst:cic/d_comb_reg[1][1][12]} {inst:cic/d_comb_reg[1][1][6]} {inst:cic/d_comb_reg[1][1][3]} {inst:cic/d_comb_reg[1][1][16]} {inst:cic/d_comb_reg[1][1][8]} {inst:cic/d_comb_reg[1][1][18]} {inst:cic/d_comb_reg[1][1][15]} {inst:cic/d_comb_reg[1][1][10]} {inst:cic/d_comb_reg[1][1][2]} {inst:cic/d_comb_reg[1][1][4]} {inst:cic/d_comb_reg[1][1][5]} {inst:cic/d_comb_reg[0][1][1]} {inst:cic/d_comb_reg[0][1][14]} {inst:cic/d_comb_reg[0][1][7]} {inst:cic/d_comb_reg[0][1][13]} {inst:cic/d_comb_reg[0][1][17]} {inst:cic/d_comb_reg[0][1][9]} {inst:cic/d_comb_reg[0][1][11]} {inst:cic/d_comb_reg[0][1][12]} {inst:cic/d_comb_reg[0][1][6]} {inst:cic/d_comb_reg[0][1][3]} {inst:cic/d_comb_reg[0][1][16]} {inst:cic/d_tmp_reg[0]} {inst:cic/d_comb_reg[0][1][8]} {inst:cic/d_comb_reg[0][1][18]} {inst:cic/d_comb_reg[0][1][15]} {inst:cic/d_comb_reg[0][1][10]} {inst:cic/d_comb_reg[0][1][2]} {inst:cic/d_comb_reg[0][1][4]} {inst:cic/d_comb_reg[0][1][5]}}]  -name dis_1 -user_priority -778240
+path_group -paths [specify_paths -through {hpin:cic/RC_CG_HIER_INST1/enable hpin:cic/RC_CG_HIER_INST2/enable hpin:cic/RC_CG_HIER_INST3/enable}]  -name cg_enable_group_clk -group cost_group:cic/cg_enable_group_clk
+# BEGIN DFT SECTION
+set_db -quiet dft_scan_style muxed_scan
+set_db -quiet dft_scanbit_waveform_analysis false
+# END DFT SECTION
+set_db -quiet design:cic .seq_reason_deleted_internal {}
+set_db -quiet design:cic .qos_by_stage {{to_generic {wns -11111111} {tns -111111111} {vep -111111111} {area 56051} {cell_count 2023} {utilization  0.00} {runtime 3 10 2 6} }{first_condense {wns -11111111} {tns -111111111} {vep -111111111} {area 49253} {cell_count 1493} {utilization  0.00} {runtime 1 11 1 8} }{second_condense {wns -11111111} {tns -111111111} {vep -111111111} {area 49024} {cell_count 1487} {utilization  0.00} {runtime 0 12 0 9} }{reify {wns 49756} {tns 0} {vep 0} {area 29431} {cell_count 519} {utilization  0.00} {runtime 2 14 2 11} }{global_incr_map {wns 49756} {tns 0} {vep 0} {area 29239} {cell_count 519} {utilization  0.00} {runtime 0 14 0 11} }{incr_opt {wns 214748365} {tns 0} {vep 0} {area 29219} {cell_count 461} {utilization  0.00} {runtime 1 16 0 13} }}
+set_db -quiet design:cic .seq_mbci_coverage 0.0
+set_db -quiet design:cic .hdl_filelist {{default -v2001 {SYNTHESIS} {/home/rdpuser/digital_anuj/cic/hdl/cic.v} {. /home/rdpuser/digital_anuj/cic/hdl} {}}}
+set_db -quiet design:cic .hdl_user_name cic
+set_db -quiet design:cic .verification_directory fv/cic
+set_db -quiet design:cic .lp_clock_gating_min_flops 3
+set_db -quiet design:cic .lp_clock_gating_max_flops inf
+set_db -quiet port:cic/clk .original_name clk
+set_db -quiet port:cic/rst .original_name rst
+set_db -quiet {port:cic/d_in[3]} .original_name {d_in[3]}
+set_db -quiet {port:cic/d_in[2]} .original_name {d_in[2]}
+set_db -quiet {port:cic/d_in[1]} .original_name {d_in[1]}
+set_db -quiet {port:cic/d_in[0]} .original_name {d_in[0]}
+set_db -quiet port:cic/ce_1 .original_name ce_1
+set_db -quiet port:cic/ce_2 .original_name ce_2
+set_db -quiet {port:cic/d_out[3]} .original_name {d_out[3]}
+set_db -quiet {port:cic/d_out[2]} .original_name {d_out[2]}
+set_db -quiet {port:cic/d_out[1]} .original_name {d_out[1]}
+set_db -quiet {port:cic/d_out[0]} .original_name {d_out[0]}
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic .logical_hier false
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic .hdl_user_name RC_CG_MOD_AUTO_cic
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic .boundary_opto strict_no
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic .lp_clock_gating_min_flops 3
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic .lp_clock_gating_max_flops inf
+set_db -quiet inst:cic/RC_CG_HIER_INST1/enl_reg .gint_phase_inversion false
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_1 .logical_hier false
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_1 .hdl_user_name RC_CG_MOD_AUTO_cic
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_1 .boundary_opto strict_no
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_1 .lp_clock_gating_min_flops 3
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_1 .lp_clock_gating_max_flops inf
+set_db -quiet inst:cic/RC_CG_HIER_INST2/enl_reg .gint_phase_inversion false
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_2 .logical_hier false
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_2 .hdl_user_name RC_CG_MOD_AUTO_cic
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_2 .boundary_opto strict_no
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_2 .lp_clock_gating_min_flops 3
+set_db -quiet module:cic/RC_CG_MOD_AUTO_cic_2 .lp_clock_gating_max_flops inf
+set_db -quiet inst:cic/RC_CG_HIER_INST3/enl_reg .gint_phase_inversion false
+set_db -quiet {inst:cic/d_comb_reg[1][0][0]} .original_name {{d_comb[1][0][0]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][0]} .single_bit_orig_name {d_comb[1][0][0]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][0]/Q} .original_name {d_comb[1][0][0]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][1]} .original_name {{d_comb[1][0][1]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][1]} .single_bit_orig_name {d_comb[1][0][1]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][1]/Q} .original_name {d_comb[1][0][1]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][2]} .original_name {{d_comb[1][0][2]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][2]} .single_bit_orig_name {d_comb[1][0][2]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][2]/Q} .original_name {d_comb[1][0][2]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][3]} .original_name {{d_comb[1][0][3]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][3]} .single_bit_orig_name {d_comb[1][0][3]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][3]/Q} .original_name {d_comb[1][0][3]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][4]} .original_name {{d_comb[1][0][4]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][4]} .single_bit_orig_name {d_comb[1][0][4]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][4]/Q} .original_name {d_comb[1][0][4]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][5]} .original_name {{d_comb[1][0][5]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][5]} .single_bit_orig_name {d_comb[1][0][5]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][5]/Q} .original_name {d_comb[1][0][5]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][6]} .original_name {{d_comb[1][0][6]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][6]} .single_bit_orig_name {d_comb[1][0][6]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][6]/Q} .original_name {d_comb[1][0][6]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][7]} .original_name {{d_comb[1][0][7]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][7]} .single_bit_orig_name {d_comb[1][0][7]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][7]/Q} .original_name {d_comb[1][0][7]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][8]} .original_name {{d_comb[1][0][8]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][8]} .single_bit_orig_name {d_comb[1][0][8]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][8]/Q} .original_name {d_comb[1][0][8]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][9]} .original_name {{d_comb[1][0][9]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][9]} .single_bit_orig_name {d_comb[1][0][9]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][9]/Q} .original_name {d_comb[1][0][9]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][10]} .original_name {{d_comb[1][0][10]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][10]} .single_bit_orig_name {d_comb[1][0][10]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][10]/Q} .original_name {d_comb[1][0][10]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][11]} .original_name {{d_comb[1][0][11]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][11]} .single_bit_orig_name {d_comb[1][0][11]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][11]/Q} .original_name {d_comb[1][0][11]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][12]} .original_name {{d_comb[1][0][12]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][12]} .single_bit_orig_name {d_comb[1][0][12]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][12]/Q} .original_name {d_comb[1][0][12]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][13]} .original_name {{d_comb[1][0][13]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][13]} .single_bit_orig_name {d_comb[1][0][13]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][13]/Q} .original_name {d_comb[1][0][13]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][14]} .original_name {{d_comb[1][0][14]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][14]} .single_bit_orig_name {d_comb[1][0][14]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][14]/Q} .original_name {d_comb[1][0][14]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][15]} .original_name {{d_comb[1][0][15]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][15]} .single_bit_orig_name {d_comb[1][0][15]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][15]/Q} .original_name {d_comb[1][0][15]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][16]} .original_name {{d_comb[1][0][16]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][16]} .single_bit_orig_name {d_comb[1][0][16]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][16]/Q} .original_name {d_comb[1][0][16]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][17]} .original_name {{d_comb[1][0][17]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][17]} .single_bit_orig_name {d_comb[1][0][17]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][17]/Q} .original_name {d_comb[1][0][17]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][18]} .original_name {{d_comb[1][0][18]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][18]} .single_bit_orig_name {d_comb[1][0][18]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][18]/Q} .original_name {d_comb[1][0][18]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][0][19]} .original_name {{d_comb[1][0][19]}}
+set_db -quiet {inst:cic/d_comb_reg[1][0][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][0][19]} .single_bit_orig_name {d_comb[1][0][19]}
+set_db -quiet {inst:cic/d_comb_reg[1][0][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][0][19]/Q} .original_name {d_comb[1][0][19]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][0]} .original_name {{d_comb[2][0][0]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][0]} .single_bit_orig_name {d_comb[2][0][0]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][0]/Q} .original_name {d_comb[2][0][0]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][1]} .original_name {{d_comb[2][0][1]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][1]} .single_bit_orig_name {d_comb[2][0][1]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][1]/Q} .original_name {d_comb[2][0][1]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][2]} .original_name {{d_comb[2][0][2]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][2]} .single_bit_orig_name {d_comb[2][0][2]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][2]/Q} .original_name {d_comb[2][0][2]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][3]} .original_name {{d_comb[2][0][3]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][3]} .single_bit_orig_name {d_comb[2][0][3]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][3]/Q} .original_name {d_comb[2][0][3]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][4]} .original_name {{d_comb[2][0][4]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][4]} .single_bit_orig_name {d_comb[2][0][4]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][4]/Q} .original_name {d_comb[2][0][4]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][5]} .original_name {{d_comb[2][0][5]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][5]} .single_bit_orig_name {d_comb[2][0][5]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][5]/Q} .original_name {d_comb[2][0][5]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][6]} .original_name {{d_comb[2][0][6]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][6]} .single_bit_orig_name {d_comb[2][0][6]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][6]/Q} .original_name {d_comb[2][0][6]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][7]} .original_name {{d_comb[2][0][7]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][7]} .single_bit_orig_name {d_comb[2][0][7]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][7]/Q} .original_name {d_comb[2][0][7]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][8]} .original_name {{d_comb[2][0][8]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][8]} .single_bit_orig_name {d_comb[2][0][8]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][8]/Q} .original_name {d_comb[2][0][8]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][9]} .original_name {{d_comb[2][0][9]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][9]} .single_bit_orig_name {d_comb[2][0][9]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][9]/Q} .original_name {d_comb[2][0][9]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][10]} .original_name {{d_comb[2][0][10]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][10]} .single_bit_orig_name {d_comb[2][0][10]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][10]/Q} .original_name {d_comb[2][0][10]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][11]} .original_name {{d_comb[2][0][11]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][11]} .single_bit_orig_name {d_comb[2][0][11]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][11]/Q} .original_name {d_comb[2][0][11]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][12]} .original_name {{d_comb[2][0][12]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][12]} .single_bit_orig_name {d_comb[2][0][12]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][12]/Q} .original_name {d_comb[2][0][12]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][13]} .original_name {{d_comb[2][0][13]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][13]} .single_bit_orig_name {d_comb[2][0][13]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][13]/Q} .original_name {d_comb[2][0][13]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][14]} .original_name {{d_comb[2][0][14]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][14]} .single_bit_orig_name {d_comb[2][0][14]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][14]/Q} .original_name {d_comb[2][0][14]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][15]} .original_name {{d_comb[2][0][15]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][15]} .single_bit_orig_name {d_comb[2][0][15]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][15]/Q} .original_name {d_comb[2][0][15]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][16]} .original_name {{d_comb[2][0][16]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][16]} .single_bit_orig_name {d_comb[2][0][16]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][16]/Q} .original_name {d_comb[2][0][16]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][17]} .original_name {{d_comb[2][0][17]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][17]} .single_bit_orig_name {d_comb[2][0][17]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][17]/Q} .original_name {d_comb[2][0][17]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][18]} .original_name {{d_comb[2][0][18]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][18]} .single_bit_orig_name {d_comb[2][0][18]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][18]/Q} .original_name {d_comb[2][0][18]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][0][19]} .original_name {{d_comb[2][0][19]}}
+set_db -quiet {inst:cic/d_comb_reg[2][0][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][0][19]} .single_bit_orig_name {d_comb[2][0][19]}
+set_db -quiet {inst:cic/d_comb_reg[2][0][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][0][19]/Q} .original_name {d_comb[2][0][19]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][0]} .original_name {{d_comb[3][0][0]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][0]} .single_bit_orig_name {d_comb[3][0][0]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][0]/Q} .original_name {d_comb[3][0][0]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][1]} .original_name {{d_comb[3][0][1]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][1]} .single_bit_orig_name {d_comb[3][0][1]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][1]/Q} .original_name {d_comb[3][0][1]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][2]} .original_name {{d_comb[3][0][2]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][2]} .single_bit_orig_name {d_comb[3][0][2]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][2]/Q} .original_name {d_comb[3][0][2]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][3]} .original_name {{d_comb[3][0][3]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][3]} .single_bit_orig_name {d_comb[3][0][3]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][3]/Q} .original_name {d_comb[3][0][3]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][4]} .original_name {{d_comb[3][0][4]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][4]} .single_bit_orig_name {d_comb[3][0][4]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][4]/Q} .original_name {d_comb[3][0][4]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][5]} .original_name {{d_comb[3][0][5]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][5]} .single_bit_orig_name {d_comb[3][0][5]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][5]/Q} .original_name {d_comb[3][0][5]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][6]} .original_name {{d_comb[3][0][6]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][6]} .single_bit_orig_name {d_comb[3][0][6]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][6]/Q} .original_name {d_comb[3][0][6]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][7]} .original_name {{d_comb[3][0][7]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][7]} .single_bit_orig_name {d_comb[3][0][7]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][7]/Q} .original_name {d_comb[3][0][7]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][8]} .original_name {{d_comb[3][0][8]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][8]} .single_bit_orig_name {d_comb[3][0][8]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][8]/Q} .original_name {d_comb[3][0][8]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][9]} .original_name {{d_comb[3][0][9]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][9]} .single_bit_orig_name {d_comb[3][0][9]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][9]/Q} .original_name {d_comb[3][0][9]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][10]} .original_name {{d_comb[3][0][10]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][10]} .single_bit_orig_name {d_comb[3][0][10]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][10]/Q} .original_name {d_comb[3][0][10]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][11]} .original_name {{d_comb[3][0][11]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][11]} .single_bit_orig_name {d_comb[3][0][11]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][11]/Q} .original_name {d_comb[3][0][11]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][12]} .original_name {{d_comb[3][0][12]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][12]} .single_bit_orig_name {d_comb[3][0][12]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][12]/Q} .original_name {d_comb[3][0][12]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][13]} .original_name {{d_comb[3][0][13]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][13]} .single_bit_orig_name {d_comb[3][0][13]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][13]/Q} .original_name {d_comb[3][0][13]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][14]} .original_name {{d_comb[3][0][14]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][14]} .single_bit_orig_name {d_comb[3][0][14]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][14]/Q} .original_name {d_comb[3][0][14]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][15]} .original_name {{d_comb[3][0][15]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][15]} .single_bit_orig_name {d_comb[3][0][15]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][15]/Q} .original_name {d_comb[3][0][15]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][16]} .original_name {{d_comb[3][0][16]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][16]} .single_bit_orig_name {d_comb[3][0][16]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][16]/Q} .original_name {d_comb[3][0][16]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][17]} .original_name {{d_comb[3][0][17]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][17]} .single_bit_orig_name {d_comb[3][0][17]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][17]/Q} .original_name {d_comb[3][0][17]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][18]} .original_name {{d_comb[3][0][18]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][18]} .single_bit_orig_name {d_comb[3][0][18]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][18]/Q} .original_name {d_comb[3][0][18]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][0][19]} .original_name {{d_comb[3][0][19]}}
+set_db -quiet {inst:cic/d_comb_reg[3][0][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][0][19]} .single_bit_orig_name {d_comb[3][0][19]}
+set_db -quiet {inst:cic/d_comb_reg[3][0][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][0][19]/Q} .original_name {d_comb[3][0][19]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][0]} .original_name {{d_comb[3][1][0]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][0]} .single_bit_orig_name {d_comb[3][1][0]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][0]/Q} .original_name {d_comb[3][1][0]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][1]} .original_name {{d_comb[3][1][1]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][1]} .single_bit_orig_name {d_comb[3][1][1]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][1]/Q} .original_name {d_comb[3][1][1]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][2]} .original_name {{d_comb[3][1][2]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][2]} .single_bit_orig_name {d_comb[3][1][2]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][2]/Q} .original_name {d_comb[3][1][2]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][2]/QN} .original_name {d_comb[3][1][2]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][3]} .original_name {{d_comb[3][1][3]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][3]} .single_bit_orig_name {d_comb[3][1][3]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][3]/Q} .original_name {d_comb[3][1][3]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][3]/QN} .original_name {d_comb[3][1][3]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][4]} .original_name {{d_comb[3][1][4]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][4]} .single_bit_orig_name {d_comb[3][1][4]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][4]/Q} .original_name {d_comb[3][1][4]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][5]} .original_name {{d_comb[3][1][5]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][5]} .single_bit_orig_name {d_comb[3][1][5]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][5]/Q} .original_name {d_comb[3][1][5]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][5]/QN} .original_name {d_comb[3][1][5]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][6]} .original_name {{d_comb[3][1][6]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][6]} .single_bit_orig_name {d_comb[3][1][6]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][6]/Q} .original_name {d_comb[3][1][6]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][7]} .original_name {{d_comb[3][1][7]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][7]} .single_bit_orig_name {d_comb[3][1][7]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][7]/Q} .original_name {d_comb[3][1][7]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][7]/QN} .original_name {d_comb[3][1][7]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][8]} .original_name {{d_comb[3][1][8]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][8]} .single_bit_orig_name {d_comb[3][1][8]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][8]/Q} .original_name {d_comb[3][1][8]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][8]/QN} .original_name {d_comb[3][1][8]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][9]} .original_name {{d_comb[3][1][9]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][9]} .single_bit_orig_name {d_comb[3][1][9]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][9]/Q} .original_name {d_comb[3][1][9]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][10]} .original_name {{d_comb[3][1][10]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][10]} .single_bit_orig_name {d_comb[3][1][10]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][10]/Q} .original_name {d_comb[3][1][10]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][11]} .original_name {{d_comb[3][1][11]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][11]} .single_bit_orig_name {d_comb[3][1][11]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][11]/Q} .original_name {d_comb[3][1][11]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][11]/QN} .original_name {d_comb[3][1][11]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][12]} .original_name {{d_comb[3][1][12]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][12]} .single_bit_orig_name {d_comb[3][1][12]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][12]/Q} .original_name {d_comb[3][1][12]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][13]} .original_name {{d_comb[3][1][13]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][13]} .single_bit_orig_name {d_comb[3][1][13]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][13]/Q} .original_name {d_comb[3][1][13]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][13]/QN} .original_name {d_comb[3][1][13]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][14]} .original_name {{d_comb[3][1][14]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][14]} .single_bit_orig_name {d_comb[3][1][14]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][14]/Q} .original_name {d_comb[3][1][14]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][14]/QN} .original_name {d_comb[3][1][14]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][15]} .original_name {{d_comb[3][1][15]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][15]} .single_bit_orig_name {d_comb[3][1][15]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][15]/Q} .original_name {d_comb[3][1][15]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][16]} .original_name {{d_comb[3][1][16]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][16]} .single_bit_orig_name {d_comb[3][1][16]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][16]/Q} .original_name {d_comb[3][1][16]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][16]/QN} .original_name {d_comb[3][1][16]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][17]} .original_name {{d_comb[3][1][17]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][17]} .single_bit_orig_name {d_comb[3][1][17]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][17]/Q} .original_name {d_comb[3][1][17]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][17]/QN} .original_name {d_comb[3][1][17]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][18]} .original_name {{d_comb[3][1][18]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][18]} .single_bit_orig_name {d_comb[3][1][18]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][18]/Q} .original_name {d_comb[3][1][18]/q}
+set_db -quiet {pin:cic/d_comb_reg[3][1][18]/QN} .original_name {d_comb[3][1][18]/q}
+set_db -quiet {inst:cic/d_comb_reg[3][1][19]} .original_name {{d_comb[3][1][19]}}
+set_db -quiet {inst:cic/d_comb_reg[3][1][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[3][1][19]} .single_bit_orig_name {d_comb[3][1][19]}
+set_db -quiet {inst:cic/d_comb_reg[3][1][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[3][1][19]/Q} .original_name {d_comb[3][1][19]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][0]} .original_name {{d_comb[0][1][0]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][0]} .single_bit_orig_name {d_comb[0][1][0]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][0]/Q} .original_name {d_comb[0][1][0]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][19]} .original_name {{d_comb[0][1][19]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][19]} .single_bit_orig_name {d_comb[0][1][19]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][19]/Q} .original_name {d_comb[0][1][19]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][2]} .original_name {{d_comb[0][0][2]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][2]} .single_bit_orig_name {d_comb[0][0][2]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][2]/Q} .original_name {d_comb[0][0][2]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][3]} .original_name {{d_comb[0][0][3]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][3]} .single_bit_orig_name {d_comb[0][0][3]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][3]/Q} .original_name {d_comb[0][0][3]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][4]} .original_name {{d_comb[0][0][4]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][4]} .single_bit_orig_name {d_comb[0][0][4]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][4]/Q} .original_name {d_comb[0][0][4]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][5]} .original_name {{d_comb[0][0][5]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][5]} .single_bit_orig_name {d_comb[0][0][5]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][5]/Q} .original_name {d_comb[0][0][5]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][6]} .original_name {{d_comb[0][0][6]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][6]} .single_bit_orig_name {d_comb[0][0][6]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][6]/Q} .original_name {d_comb[0][0][6]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][7]} .original_name {{d_comb[0][0][7]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][7]} .single_bit_orig_name {d_comb[0][0][7]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][7]/Q} .original_name {d_comb[0][0][7]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][8]} .original_name {{d_comb[0][0][8]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][8]} .single_bit_orig_name {d_comb[0][0][8]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][8]/Q} .original_name {d_comb[0][0][8]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][9]} .original_name {{d_comb[0][0][9]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][9]} .single_bit_orig_name {d_comb[0][0][9]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][9]/Q} .original_name {d_comb[0][0][9]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][10]} .original_name {{d_comb[0][0][10]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][10]} .single_bit_orig_name {d_comb[0][0][10]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][10]/Q} .original_name {d_comb[0][0][10]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][11]} .original_name {{d_comb[0][0][11]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][11]} .single_bit_orig_name {d_comb[0][0][11]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][11]/Q} .original_name {d_comb[0][0][11]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][12]} .original_name {{d_comb[0][0][12]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][12]} .single_bit_orig_name {d_comb[0][0][12]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][12]/Q} .original_name {d_comb[0][0][12]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][13]} .original_name {{d_comb[0][0][13]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][13]} .single_bit_orig_name {d_comb[0][0][13]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][13]/Q} .original_name {d_comb[0][0][13]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][14]} .original_name {{d_comb[0][0][14]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][14]} .single_bit_orig_name {d_comb[0][0][14]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][14]/Q} .original_name {d_comb[0][0][14]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][0]} .original_name {{d_comb[0][0][0]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][0]} .single_bit_orig_name {d_comb[0][0][0]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][0]/Q} .original_name {d_comb[0][0][0]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][17]} .original_name {{d_comb[0][0][17]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][17]} .single_bit_orig_name {d_comb[0][0][17]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][17]/Q} .original_name {d_comb[0][0][17]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][18]} .original_name {{d_comb[0][0][18]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][18]} .single_bit_orig_name {d_comb[0][0][18]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][18]/Q} .original_name {d_comb[0][0][18]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][1]} .original_name {{d_comb[0][0][1]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][1]} .single_bit_orig_name {d_comb[0][0][1]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][1]/Q} .original_name {d_comb[0][0][1]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][19]} .original_name {{d_comb[0][0][19]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][19]} .single_bit_orig_name {d_comb[0][0][19]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][19]/Q} .original_name {d_comb[0][0][19]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][15]} .original_name {{d_comb[0][0][15]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][15]} .single_bit_orig_name {d_comb[0][0][15]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][15]/Q} .original_name {d_comb[0][0][15]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][0][16]} .original_name {{d_comb[0][0][16]}}
+set_db -quiet {inst:cic/d_comb_reg[0][0][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][0][16]} .single_bit_orig_name {d_comb[0][0][16]}
+set_db -quiet {inst:cic/d_comb_reg[0][0][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][0][16]/Q} .original_name {d_comb[0][0][16]/q}
+set_db -quiet {inst:cic/d_tmp_reg[18]} .original_name {{d_tmp[18]}}
+set_db -quiet {inst:cic/d_tmp_reg[18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[18]} .single_bit_orig_name {d_tmp[18]}
+set_db -quiet {inst:cic/d_tmp_reg[18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[18]/Q} .original_name {d_tmp[18]/q}
+set_db -quiet {inst:cic/d_tmp_reg[14]} .original_name {{d_tmp[14]}}
+set_db -quiet {inst:cic/d_tmp_reg[14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[14]} .single_bit_orig_name {d_tmp[14]}
+set_db -quiet {inst:cic/d_tmp_reg[14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[14]/Q} .original_name {d_tmp[14]/q}
+set_db -quiet {inst:cic/d_tmp_reg[6]} .original_name {{d_tmp[6]}}
+set_db -quiet {inst:cic/d_tmp_reg[6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[6]} .single_bit_orig_name {d_tmp[6]}
+set_db -quiet {inst:cic/d_tmp_reg[6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[6]/Q} .original_name {d_tmp[6]/q}
+set_db -quiet {inst:cic/d_tmp_reg[1]} .original_name {{d_tmp[1]}}
+set_db -quiet {inst:cic/d_tmp_reg[1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[1]} .single_bit_orig_name {d_tmp[1]}
+set_db -quiet {inst:cic/d_tmp_reg[1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[1]/Q} .original_name {d_tmp[1]/q}
+set_db -quiet {inst:cic/d_tmp_reg[2]} .original_name {{d_tmp[2]}}
+set_db -quiet {inst:cic/d_tmp_reg[2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[2]} .single_bit_orig_name {d_tmp[2]}
+set_db -quiet {inst:cic/d_tmp_reg[2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[2]/Q} .original_name {d_tmp[2]/q}
+set_db -quiet {inst:cic/d_tmp_reg[3]} .original_name {{d_tmp[3]}}
+set_db -quiet {inst:cic/d_tmp_reg[3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[3]} .single_bit_orig_name {d_tmp[3]}
+set_db -quiet {inst:cic/d_tmp_reg[3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[3]/Q} .original_name {d_tmp[3]/q}
+set_db -quiet {inst:cic/d_tmp_reg[4]} .original_name {{d_tmp[4]}}
+set_db -quiet {inst:cic/d_tmp_reg[4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[4]} .single_bit_orig_name {d_tmp[4]}
+set_db -quiet {inst:cic/d_tmp_reg[4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[4]/Q} .original_name {d_tmp[4]/q}
+set_db -quiet {inst:cic/d_tmp_reg[5]} .original_name {{d_tmp[5]}}
+set_db -quiet {inst:cic/d_tmp_reg[5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[5]} .single_bit_orig_name {d_tmp[5]}
+set_db -quiet {inst:cic/d_tmp_reg[5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[5]/Q} .original_name {d_tmp[5]/q}
+set_db -quiet {inst:cic/d_tmp_reg[7]} .original_name {{d_tmp[7]}}
+set_db -quiet {inst:cic/d_tmp_reg[7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[7]} .single_bit_orig_name {d_tmp[7]}
+set_db -quiet {inst:cic/d_tmp_reg[7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[7]/Q} .original_name {d_tmp[7]/q}
+set_db -quiet {inst:cic/d_tmp_reg[8]} .original_name {{d_tmp[8]}}
+set_db -quiet {inst:cic/d_tmp_reg[8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[8]} .single_bit_orig_name {d_tmp[8]}
+set_db -quiet {inst:cic/d_tmp_reg[8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[8]/Q} .original_name {d_tmp[8]/q}
+set_db -quiet {inst:cic/d_tmp_reg[9]} .original_name {{d_tmp[9]}}
+set_db -quiet {inst:cic/d_tmp_reg[9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[9]} .single_bit_orig_name {d_tmp[9]}
+set_db -quiet {inst:cic/d_tmp_reg[9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[9]/Q} .original_name {d_tmp[9]/q}
+set_db -quiet {inst:cic/d_tmp_reg[10]} .original_name {{d_tmp[10]}}
+set_db -quiet {inst:cic/d_tmp_reg[10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[10]} .single_bit_orig_name {d_tmp[10]}
+set_db -quiet {inst:cic/d_tmp_reg[10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[10]/Q} .original_name {d_tmp[10]/q}
+set_db -quiet {inst:cic/d_tmp_reg[11]} .original_name {{d_tmp[11]}}
+set_db -quiet {inst:cic/d_tmp_reg[11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[11]} .single_bit_orig_name {d_tmp[11]}
+set_db -quiet {inst:cic/d_tmp_reg[11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[11]/Q} .original_name {d_tmp[11]/q}
+set_db -quiet {inst:cic/d_tmp_reg[12]} .original_name {{d_tmp[12]}}
+set_db -quiet {inst:cic/d_tmp_reg[12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[12]} .single_bit_orig_name {d_tmp[12]}
+set_db -quiet {inst:cic/d_tmp_reg[12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[12]/Q} .original_name {d_tmp[12]/q}
+set_db -quiet {inst:cic/d_tmp_reg[13]} .original_name {{d_tmp[13]}}
+set_db -quiet {inst:cic/d_tmp_reg[13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[13]} .single_bit_orig_name {d_tmp[13]}
+set_db -quiet {inst:cic/d_tmp_reg[13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[13]/Q} .original_name {d_tmp[13]/q}
+set_db -quiet {inst:cic/d_tmp_reg[15]} .original_name {{d_tmp[15]}}
+set_db -quiet {inst:cic/d_tmp_reg[15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[15]} .single_bit_orig_name {d_tmp[15]}
+set_db -quiet {inst:cic/d_tmp_reg[15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[15]/Q} .original_name {d_tmp[15]/q}
+set_db -quiet {inst:cic/d_tmp_reg[16]} .original_name {{d_tmp[16]}}
+set_db -quiet {inst:cic/d_tmp_reg[16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[16]} .single_bit_orig_name {d_tmp[16]}
+set_db -quiet {inst:cic/d_tmp_reg[16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[16]/Q} .original_name {d_tmp[16]/q}
+set_db -quiet {inst:cic/d_tmp_reg[17]} .original_name {{d_tmp[17]}}
+set_db -quiet {inst:cic/d_tmp_reg[17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[17]} .single_bit_orig_name {d_tmp[17]}
+set_db -quiet {inst:cic/d_tmp_reg[17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[17]/Q} .original_name {d_tmp[17]/q}
+set_db -quiet {inst:cic/d_tmp_reg[19]} .original_name {{d_tmp[19]}}
+set_db -quiet {inst:cic/d_tmp_reg[19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[19]} .single_bit_orig_name {d_tmp[19]}
+set_db -quiet {inst:cic/d_tmp_reg[19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[19]/Q} .original_name {d_tmp[19]/q}
+set_db -quiet {inst:cic/integrator_reg[0][17]} .original_name {{integrator[0][17]}}
+set_db -quiet {inst:cic/integrator_reg[0][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][17]} .single_bit_orig_name {integrator[0][17]}
+set_db -quiet {inst:cic/integrator_reg[0][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][17]/Q} .original_name {integrator[0][17]/q}
+set_db -quiet {inst:cic/integrator_reg[0][1]} .original_name {{integrator[0][1]}}
+set_db -quiet {inst:cic/integrator_reg[0][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][1]} .single_bit_orig_name {integrator[0][1]}
+set_db -quiet {inst:cic/integrator_reg[0][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][1]/Q} .original_name {integrator[0][1]/q}
+set_db -quiet {inst:cic/integrator_reg[0][2]} .original_name {{integrator[0][2]}}
+set_db -quiet {inst:cic/integrator_reg[0][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][2]} .single_bit_orig_name {integrator[0][2]}
+set_db -quiet {inst:cic/integrator_reg[0][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][2]/Q} .original_name {integrator[0][2]/q}
+set_db -quiet {inst:cic/integrator_reg[0][3]} .original_name {{integrator[0][3]}}
+set_db -quiet {inst:cic/integrator_reg[0][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][3]} .single_bit_orig_name {integrator[0][3]}
+set_db -quiet {inst:cic/integrator_reg[0][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][3]/Q} .original_name {integrator[0][3]/q}
+set_db -quiet {inst:cic/integrator_reg[0][4]} .original_name {{integrator[0][4]}}
+set_db -quiet {inst:cic/integrator_reg[0][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][4]} .single_bit_orig_name {integrator[0][4]}
+set_db -quiet {inst:cic/integrator_reg[0][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][4]/Q} .original_name {integrator[0][4]/q}
+set_db -quiet {inst:cic/integrator_reg[3][15]} .original_name {{integrator[3][15]}}
+set_db -quiet {inst:cic/integrator_reg[3][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][15]} .single_bit_orig_name {integrator[3][15]}
+set_db -quiet {inst:cic/integrator_reg[3][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][15]/Q} .original_name {integrator[3][15]/q}
+set_db -quiet {inst:cic/integrator_reg[0][5]} .original_name {{integrator[0][5]}}
+set_db -quiet {inst:cic/integrator_reg[0][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][5]} .single_bit_orig_name {integrator[0][5]}
+set_db -quiet {inst:cic/integrator_reg[0][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][5]/Q} .original_name {integrator[0][5]/q}
+set_db -quiet {inst:cic/integrator_reg[0][6]} .original_name {{integrator[0][6]}}
+set_db -quiet {inst:cic/integrator_reg[0][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][6]} .single_bit_orig_name {integrator[0][6]}
+set_db -quiet {inst:cic/integrator_reg[0][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][6]/Q} .original_name {integrator[0][6]/q}
+set_db -quiet {inst:cic/integrator_reg[0][7]} .original_name {{integrator[0][7]}}
+set_db -quiet {inst:cic/integrator_reg[0][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][7]} .single_bit_orig_name {integrator[0][7]}
+set_db -quiet {inst:cic/integrator_reg[0][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][7]/Q} .original_name {integrator[0][7]/q}
+set_db -quiet {inst:cic/integrator_reg[3][11]} .original_name {{integrator[3][11]}}
+set_db -quiet {inst:cic/integrator_reg[3][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][11]} .single_bit_orig_name {integrator[3][11]}
+set_db -quiet {inst:cic/integrator_reg[3][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][11]/Q} .original_name {integrator[3][11]/q}
+set_db -quiet {inst:cic/integrator_reg[0][8]} .original_name {{integrator[0][8]}}
+set_db -quiet {inst:cic/integrator_reg[0][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][8]} .single_bit_orig_name {integrator[0][8]}
+set_db -quiet {inst:cic/integrator_reg[0][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][8]/Q} .original_name {integrator[0][8]/q}
+set_db -quiet {inst:cic/integrator_reg[0][9]} .original_name {{integrator[0][9]}}
+set_db -quiet {inst:cic/integrator_reg[0][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][9]} .single_bit_orig_name {integrator[0][9]}
+set_db -quiet {inst:cic/integrator_reg[0][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][9]/Q} .original_name {integrator[0][9]/q}
+set_db -quiet {inst:cic/integrator_reg[0][10]} .original_name {{integrator[0][10]}}
+set_db -quiet {inst:cic/integrator_reg[0][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][10]} .single_bit_orig_name {integrator[0][10]}
+set_db -quiet {inst:cic/integrator_reg[0][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][10]/Q} .original_name {integrator[0][10]/q}
+set_db -quiet {inst:cic/integrator_reg[3][7]} .original_name {{integrator[3][7]}}
+set_db -quiet {inst:cic/integrator_reg[3][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][7]} .single_bit_orig_name {integrator[3][7]}
+set_db -quiet {inst:cic/integrator_reg[3][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][7]/Q} .original_name {integrator[3][7]/q}
+set_db -quiet {inst:cic/integrator_reg[0][11]} .original_name {{integrator[0][11]}}
+set_db -quiet {inst:cic/integrator_reg[0][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][11]} .single_bit_orig_name {integrator[0][11]}
+set_db -quiet {inst:cic/integrator_reg[0][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][11]/Q} .original_name {integrator[0][11]/q}
+set_db -quiet {inst:cic/integrator_reg[0][12]} .original_name {{integrator[0][12]}}
+set_db -quiet {inst:cic/integrator_reg[0][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][12]} .single_bit_orig_name {integrator[0][12]}
+set_db -quiet {inst:cic/integrator_reg[0][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][12]/Q} .original_name {integrator[0][12]/q}
+set_db -quiet {inst:cic/integrator_reg[0][13]} .original_name {{integrator[0][13]}}
+set_db -quiet {inst:cic/integrator_reg[0][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][13]} .single_bit_orig_name {integrator[0][13]}
+set_db -quiet {inst:cic/integrator_reg[0][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][13]/Q} .original_name {integrator[0][13]/q}
+set_db -quiet {inst:cic/integrator_reg[0][14]} .original_name {{integrator[0][14]}}
+set_db -quiet {inst:cic/integrator_reg[0][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][14]} .single_bit_orig_name {integrator[0][14]}
+set_db -quiet {inst:cic/integrator_reg[0][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][14]/Q} .original_name {integrator[0][14]/q}
+set_db -quiet {inst:cic/integrator_reg[0][15]} .original_name {{integrator[0][15]}}
+set_db -quiet {inst:cic/integrator_reg[0][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][15]} .single_bit_orig_name {integrator[0][15]}
+set_db -quiet {inst:cic/integrator_reg[0][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][15]/Q} .original_name {integrator[0][15]/q}
+set_db -quiet {inst:cic/integrator_reg[0][16]} .original_name {{integrator[0][16]}}
+set_db -quiet {inst:cic/integrator_reg[0][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][16]} .single_bit_orig_name {integrator[0][16]}
+set_db -quiet {inst:cic/integrator_reg[0][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][16]/Q} .original_name {integrator[0][16]/q}
+set_db -quiet {inst:cic/integrator_reg[0][0]} .original_name {{integrator[0][0]}}
+set_db -quiet {inst:cic/integrator_reg[0][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][0]} .single_bit_orig_name {integrator[0][0]}
+set_db -quiet {inst:cic/integrator_reg[0][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][0]/Q} .original_name {integrator[0][0]/q}
+set_db -quiet {inst:cic/integrator_reg[2][19]} .original_name {{integrator[2][19]}}
+set_db -quiet {inst:cic/integrator_reg[2][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][19]} .single_bit_orig_name {integrator[2][19]}
+set_db -quiet {inst:cic/integrator_reg[2][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][19]/Q} .original_name {integrator[2][19]/q}
+set_db -quiet {inst:cic/integrator_reg[0][18]} .original_name {{integrator[0][18]}}
+set_db -quiet {inst:cic/integrator_reg[0][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][18]} .single_bit_orig_name {integrator[0][18]}
+set_db -quiet {inst:cic/integrator_reg[0][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][18]/Q} .original_name {integrator[0][18]/q}
+set_db -quiet {inst:cic/integrator_reg[0][19]} .original_name {{integrator[0][19]}}
+set_db -quiet {inst:cic/integrator_reg[0][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[0][19]} .single_bit_orig_name {integrator[0][19]}
+set_db -quiet {inst:cic/integrator_reg[0][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[0][19]/Q} .original_name {integrator[0][19]/q}
+set_db -quiet {inst:cic/integrator_reg[1][0]} .original_name {{integrator[1][0]}}
+set_db -quiet {inst:cic/integrator_reg[1][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][0]} .single_bit_orig_name {integrator[1][0]}
+set_db -quiet {inst:cic/integrator_reg[1][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][0]/Q} .original_name {integrator[1][0]/q}
+set_db -quiet {inst:cic/integrator_reg[2][15]} .original_name {{integrator[2][15]}}
+set_db -quiet {inst:cic/integrator_reg[2][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][15]} .single_bit_orig_name {integrator[2][15]}
+set_db -quiet {inst:cic/integrator_reg[2][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][15]/Q} .original_name {integrator[2][15]/q}
+set_db -quiet {inst:cic/integrator_reg[1][1]} .original_name {{integrator[1][1]}}
+set_db -quiet {inst:cic/integrator_reg[1][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][1]} .single_bit_orig_name {integrator[1][1]}
+set_db -quiet {inst:cic/integrator_reg[1][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][1]/Q} .original_name {integrator[1][1]/q}
+set_db -quiet {inst:cic/integrator_reg[1][2]} .original_name {{integrator[1][2]}}
+set_db -quiet {inst:cic/integrator_reg[1][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][2]} .single_bit_orig_name {integrator[1][2]}
+set_db -quiet {inst:cic/integrator_reg[1][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][2]/Q} .original_name {integrator[1][2]/q}
+set_db -quiet {inst:cic/integrator_reg[1][3]} .original_name {{integrator[1][3]}}
+set_db -quiet {inst:cic/integrator_reg[1][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][3]} .single_bit_orig_name {integrator[1][3]}
+set_db -quiet {inst:cic/integrator_reg[1][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][3]/Q} .original_name {integrator[1][3]/q}
+set_db -quiet {inst:cic/integrator_reg[2][11]} .original_name {{integrator[2][11]}}
+set_db -quiet {inst:cic/integrator_reg[2][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][11]} .single_bit_orig_name {integrator[2][11]}
+set_db -quiet {inst:cic/integrator_reg[2][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][11]/Q} .original_name {integrator[2][11]/q}
+set_db -quiet {inst:cic/integrator_reg[1][4]} .original_name {{integrator[1][4]}}
+set_db -quiet {inst:cic/integrator_reg[1][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][4]} .single_bit_orig_name {integrator[1][4]}
+set_db -quiet {inst:cic/integrator_reg[1][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][4]/Q} .original_name {integrator[1][4]/q}
+set_db -quiet {inst:cic/integrator_reg[1][5]} .original_name {{integrator[1][5]}}
+set_db -quiet {inst:cic/integrator_reg[1][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][5]} .single_bit_orig_name {integrator[1][5]}
+set_db -quiet {inst:cic/integrator_reg[1][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][5]/Q} .original_name {integrator[1][5]/q}
+set_db -quiet {inst:cic/integrator_reg[1][6]} .original_name {{integrator[1][6]}}
+set_db -quiet {inst:cic/integrator_reg[1][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][6]} .single_bit_orig_name {integrator[1][6]}
+set_db -quiet {inst:cic/integrator_reg[1][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][6]/Q} .original_name {integrator[1][6]/q}
+set_db -quiet {inst:cic/integrator_reg[1][7]} .original_name {{integrator[1][7]}}
+set_db -quiet {inst:cic/integrator_reg[1][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][7]} .single_bit_orig_name {integrator[1][7]}
+set_db -quiet {inst:cic/integrator_reg[1][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][7]/Q} .original_name {integrator[1][7]/q}
+set_db -quiet {inst:cic/integrator_reg[1][8]} .original_name {{integrator[1][8]}}
+set_db -quiet {inst:cic/integrator_reg[1][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][8]} .single_bit_orig_name {integrator[1][8]}
+set_db -quiet {inst:cic/integrator_reg[1][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][8]/Q} .original_name {integrator[1][8]/q}
+set_db -quiet {inst:cic/integrator_reg[1][9]} .original_name {{integrator[1][9]}}
+set_db -quiet {inst:cic/integrator_reg[1][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][9]} .single_bit_orig_name {integrator[1][9]}
+set_db -quiet {inst:cic/integrator_reg[1][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][9]/Q} .original_name {integrator[1][9]/q}
+set_db -quiet {inst:cic/integrator_reg[1][10]} .original_name {{integrator[1][10]}}
+set_db -quiet {inst:cic/integrator_reg[1][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][10]} .single_bit_orig_name {integrator[1][10]}
+set_db -quiet {inst:cic/integrator_reg[1][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][10]/Q} .original_name {integrator[1][10]/q}
+set_db -quiet {inst:cic/integrator_reg[2][3]} .original_name {{integrator[2][3]}}
+set_db -quiet {inst:cic/integrator_reg[2][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][3]} .single_bit_orig_name {integrator[2][3]}
+set_db -quiet {inst:cic/integrator_reg[2][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][3]/Q} .original_name {integrator[2][3]/q}
+set_db -quiet {inst:cic/integrator_reg[1][11]} .original_name {{integrator[1][11]}}
+set_db -quiet {inst:cic/integrator_reg[1][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][11]} .single_bit_orig_name {integrator[1][11]}
+set_db -quiet {inst:cic/integrator_reg[1][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][11]/Q} .original_name {integrator[1][11]/q}
+set_db -quiet {inst:cic/integrator_reg[1][12]} .original_name {{integrator[1][12]}}
+set_db -quiet {inst:cic/integrator_reg[1][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][12]} .single_bit_orig_name {integrator[1][12]}
+set_db -quiet {inst:cic/integrator_reg[1][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][12]/Q} .original_name {integrator[1][12]/q}
+set_db -quiet {inst:cic/integrator_reg[2][16]} .original_name {{integrator[2][16]}}
+set_db -quiet {inst:cic/integrator_reg[2][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][16]} .single_bit_orig_name {integrator[2][16]}
+set_db -quiet {inst:cic/integrator_reg[2][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][16]/Q} .original_name {integrator[2][16]/q}
+set_db -quiet {inst:cic/integrator_reg[1][14]} .original_name {{integrator[1][14]}}
+set_db -quiet {inst:cic/integrator_reg[1][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][14]} .single_bit_orig_name {integrator[1][14]}
+set_db -quiet {inst:cic/integrator_reg[1][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][14]/Q} .original_name {integrator[1][14]/q}
+set_db -quiet {inst:cic/integrator_reg[1][15]} .original_name {{integrator[1][15]}}
+set_db -quiet {inst:cic/integrator_reg[1][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][15]} .single_bit_orig_name {integrator[1][15]}
+set_db -quiet {inst:cic/integrator_reg[1][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][15]/Q} .original_name {integrator[1][15]/q}
+set_db -quiet {inst:cic/integrator_reg[1][16]} .original_name {{integrator[1][16]}}
+set_db -quiet {inst:cic/integrator_reg[1][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][16]} .single_bit_orig_name {integrator[1][16]}
+set_db -quiet {inst:cic/integrator_reg[1][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][16]/Q} .original_name {integrator[1][16]/q}
+set_db -quiet {inst:cic/integrator_reg[1][17]} .original_name {{integrator[1][17]}}
+set_db -quiet {inst:cic/integrator_reg[1][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][17]} .single_bit_orig_name {integrator[1][17]}
+set_db -quiet {inst:cic/integrator_reg[1][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][17]/Q} .original_name {integrator[1][17]/q}
+set_db -quiet {inst:cic/integrator_reg[1][18]} .original_name {{integrator[1][18]}}
+set_db -quiet {inst:cic/integrator_reg[1][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][18]} .single_bit_orig_name {integrator[1][18]}
+set_db -quiet {inst:cic/integrator_reg[1][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][18]/Q} .original_name {integrator[1][18]/q}
+set_db -quiet {inst:cic/integrator_reg[1][19]} .original_name {{integrator[1][19]}}
+set_db -quiet {inst:cic/integrator_reg[1][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][19]} .single_bit_orig_name {integrator[1][19]}
+set_db -quiet {inst:cic/integrator_reg[1][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][19]/Q} .original_name {integrator[1][19]/q}
+set_db -quiet {inst:cic/integrator_reg[2][0]} .original_name {{integrator[2][0]}}
+set_db -quiet {inst:cic/integrator_reg[2][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][0]} .single_bit_orig_name {integrator[2][0]}
+set_db -quiet {inst:cic/integrator_reg[2][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][0]/Q} .original_name {integrator[2][0]/q}
+set_db -quiet {inst:cic/integrator_reg[2][1]} .original_name {{integrator[2][1]}}
+set_db -quiet {inst:cic/integrator_reg[2][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][1]} .single_bit_orig_name {integrator[2][1]}
+set_db -quiet {inst:cic/integrator_reg[2][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][1]/Q} .original_name {integrator[2][1]/q}
+set_db -quiet {inst:cic/integrator_reg[2][2]} .original_name {{integrator[2][2]}}
+set_db -quiet {inst:cic/integrator_reg[2][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][2]} .single_bit_orig_name {integrator[2][2]}
+set_db -quiet {inst:cic/integrator_reg[2][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][2]/Q} .original_name {integrator[2][2]/q}
+set_db -quiet {inst:cic/integrator_reg[2][4]} .original_name {{integrator[2][4]}}
+set_db -quiet {inst:cic/integrator_reg[2][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][4]} .single_bit_orig_name {integrator[2][4]}
+set_db -quiet {inst:cic/integrator_reg[2][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][4]/Q} .original_name {integrator[2][4]/q}
+set_db -quiet {inst:cic/integrator_reg[2][5]} .original_name {{integrator[2][5]}}
+set_db -quiet {inst:cic/integrator_reg[2][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][5]} .single_bit_orig_name {integrator[2][5]}
+set_db -quiet {inst:cic/integrator_reg[2][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][5]/Q} .original_name {integrator[2][5]/q}
+set_db -quiet {inst:cic/integrator_reg[2][6]} .original_name {{integrator[2][6]}}
+set_db -quiet {inst:cic/integrator_reg[2][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][6]} .single_bit_orig_name {integrator[2][6]}
+set_db -quiet {inst:cic/integrator_reg[2][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][6]/Q} .original_name {integrator[2][6]/q}
+set_db -quiet {inst:cic/integrator_reg[2][7]} .original_name {{integrator[2][7]}}
+set_db -quiet {inst:cic/integrator_reg[2][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][7]} .single_bit_orig_name {integrator[2][7]}
+set_db -quiet {inst:cic/integrator_reg[2][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][7]/Q} .original_name {integrator[2][7]/q}
+set_db -quiet {inst:cic/integrator_reg[2][8]} .original_name {{integrator[2][8]}}
+set_db -quiet {inst:cic/integrator_reg[2][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][8]} .single_bit_orig_name {integrator[2][8]}
+set_db -quiet {inst:cic/integrator_reg[2][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][8]/Q} .original_name {integrator[2][8]/q}
+set_db -quiet {inst:cic/integrator_reg[2][9]} .original_name {{integrator[2][9]}}
+set_db -quiet {inst:cic/integrator_reg[2][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][9]} .single_bit_orig_name {integrator[2][9]}
+set_db -quiet {inst:cic/integrator_reg[2][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][9]/Q} .original_name {integrator[2][9]/q}
+set_db -quiet {inst:cic/integrator_reg[2][10]} .original_name {{integrator[2][10]}}
+set_db -quiet {inst:cic/integrator_reg[2][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][10]} .single_bit_orig_name {integrator[2][10]}
+set_db -quiet {inst:cic/integrator_reg[2][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][10]/Q} .original_name {integrator[2][10]/q}
+set_db -quiet {inst:cic/integrator_reg[2][12]} .original_name {{integrator[2][12]}}
+set_db -quiet {inst:cic/integrator_reg[2][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][12]} .single_bit_orig_name {integrator[2][12]}
+set_db -quiet {inst:cic/integrator_reg[2][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][12]/Q} .original_name {integrator[2][12]/q}
+set_db -quiet {inst:cic/integrator_reg[2][13]} .original_name {{integrator[2][13]}}
+set_db -quiet {inst:cic/integrator_reg[2][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][13]} .single_bit_orig_name {integrator[2][13]}
+set_db -quiet {inst:cic/integrator_reg[2][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][13]/Q} .original_name {integrator[2][13]/q}
+set_db -quiet {inst:cic/integrator_reg[2][14]} .original_name {{integrator[2][14]}}
+set_db -quiet {inst:cic/integrator_reg[2][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][14]} .single_bit_orig_name {integrator[2][14]}
+set_db -quiet {inst:cic/integrator_reg[2][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][14]/Q} .original_name {integrator[2][14]/q}
+set_db -quiet {inst:cic/integrator_reg[1][13]} .original_name {{integrator[1][13]}}
+set_db -quiet {inst:cic/integrator_reg[1][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[1][13]} .single_bit_orig_name {integrator[1][13]}
+set_db -quiet {inst:cic/integrator_reg[1][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[1][13]/Q} .original_name {integrator[1][13]/q}
+set_db -quiet {inst:cic/integrator_reg[2][17]} .original_name {{integrator[2][17]}}
+set_db -quiet {inst:cic/integrator_reg[2][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][17]} .single_bit_orig_name {integrator[2][17]}
+set_db -quiet {inst:cic/integrator_reg[2][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][17]/Q} .original_name {integrator[2][17]/q}
+set_db -quiet {inst:cic/integrator_reg[2][18]} .original_name {{integrator[2][18]}}
+set_db -quiet {inst:cic/integrator_reg[2][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[2][18]} .single_bit_orig_name {integrator[2][18]}
+set_db -quiet {inst:cic/integrator_reg[2][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[2][18]/Q} .original_name {integrator[2][18]/q}
+set_db -quiet {inst:cic/integrator_reg[3][0]} .original_name {{integrator[3][0]}}
+set_db -quiet {inst:cic/integrator_reg[3][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][0]} .single_bit_orig_name {integrator[3][0]}
+set_db -quiet {inst:cic/integrator_reg[3][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][0]/Q} .original_name {integrator[3][0]/q}
+set_db -quiet {inst:cic/integrator_reg[3][1]} .original_name {{integrator[3][1]}}
+set_db -quiet {inst:cic/integrator_reg[3][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][1]} .single_bit_orig_name {integrator[3][1]}
+set_db -quiet {inst:cic/integrator_reg[3][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][1]/Q} .original_name {integrator[3][1]/q}
+set_db -quiet {inst:cic/integrator_reg[3][2]} .original_name {{integrator[3][2]}}
+set_db -quiet {inst:cic/integrator_reg[3][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][2]} .single_bit_orig_name {integrator[3][2]}
+set_db -quiet {inst:cic/integrator_reg[3][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][2]/Q} .original_name {integrator[3][2]/q}
+set_db -quiet {inst:cic/integrator_reg[3][3]} .original_name {{integrator[3][3]}}
+set_db -quiet {inst:cic/integrator_reg[3][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][3]} .single_bit_orig_name {integrator[3][3]}
+set_db -quiet {inst:cic/integrator_reg[3][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][3]/Q} .original_name {integrator[3][3]/q}
+set_db -quiet {inst:cic/integrator_reg[3][4]} .original_name {{integrator[3][4]}}
+set_db -quiet {inst:cic/integrator_reg[3][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][4]} .single_bit_orig_name {integrator[3][4]}
+set_db -quiet {inst:cic/integrator_reg[3][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][4]/Q} .original_name {integrator[3][4]/q}
+set_db -quiet {inst:cic/integrator_reg[3][5]} .original_name {{integrator[3][5]}}
+set_db -quiet {inst:cic/integrator_reg[3][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][5]} .single_bit_orig_name {integrator[3][5]}
+set_db -quiet {inst:cic/integrator_reg[3][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][5]/Q} .original_name {integrator[3][5]/q}
+set_db -quiet {inst:cic/integrator_reg[3][6]} .original_name {{integrator[3][6]}}
+set_db -quiet {inst:cic/integrator_reg[3][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][6]} .single_bit_orig_name {integrator[3][6]}
+set_db -quiet {inst:cic/integrator_reg[3][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][6]/Q} .original_name {integrator[3][6]/q}
+set_db -quiet {inst:cic/integrator_reg[3][8]} .original_name {{integrator[3][8]}}
+set_db -quiet {inst:cic/integrator_reg[3][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][8]} .single_bit_orig_name {integrator[3][8]}
+set_db -quiet {inst:cic/integrator_reg[3][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][8]/Q} .original_name {integrator[3][8]/q}
+set_db -quiet {inst:cic/integrator_reg[3][9]} .original_name {{integrator[3][9]}}
+set_db -quiet {inst:cic/integrator_reg[3][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][9]} .single_bit_orig_name {integrator[3][9]}
+set_db -quiet {inst:cic/integrator_reg[3][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][9]/Q} .original_name {integrator[3][9]/q}
+set_db -quiet {inst:cic/integrator_reg[3][10]} .original_name {{integrator[3][10]}}
+set_db -quiet {inst:cic/integrator_reg[3][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][10]} .single_bit_orig_name {integrator[3][10]}
+set_db -quiet {inst:cic/integrator_reg[3][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][10]/Q} .original_name {integrator[3][10]/q}
+set_db -quiet {inst:cic/integrator_reg[3][12]} .original_name {{integrator[3][12]}}
+set_db -quiet {inst:cic/integrator_reg[3][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][12]} .single_bit_orig_name {integrator[3][12]}
+set_db -quiet {inst:cic/integrator_reg[3][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][12]/Q} .original_name {integrator[3][12]/q}
+set_db -quiet {inst:cic/integrator_reg[3][13]} .original_name {{integrator[3][13]}}
+set_db -quiet {inst:cic/integrator_reg[3][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][13]} .single_bit_orig_name {integrator[3][13]}
+set_db -quiet {inst:cic/integrator_reg[3][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][13]/Q} .original_name {integrator[3][13]/q}
+set_db -quiet {inst:cic/integrator_reg[3][14]} .original_name {{integrator[3][14]}}
+set_db -quiet {inst:cic/integrator_reg[3][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][14]} .single_bit_orig_name {integrator[3][14]}
+set_db -quiet {inst:cic/integrator_reg[3][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][14]/Q} .original_name {integrator[3][14]/q}
+set_db -quiet {inst:cic/integrator_reg[3][16]} .original_name {{integrator[3][16]}}
+set_db -quiet {inst:cic/integrator_reg[3][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][16]} .single_bit_orig_name {integrator[3][16]}
+set_db -quiet {inst:cic/integrator_reg[3][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][16]/Q} .original_name {integrator[3][16]/q}
+set_db -quiet {inst:cic/integrator_reg[3][17]} .original_name {{integrator[3][17]}}
+set_db -quiet {inst:cic/integrator_reg[3][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][17]} .single_bit_orig_name {integrator[3][17]}
+set_db -quiet {inst:cic/integrator_reg[3][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][17]/Q} .original_name {integrator[3][17]/q}
+set_db -quiet {inst:cic/integrator_reg[3][18]} .original_name {{integrator[3][18]}}
+set_db -quiet {inst:cic/integrator_reg[3][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][18]} .single_bit_orig_name {integrator[3][18]}
+set_db -quiet {inst:cic/integrator_reg[3][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][18]/Q} .original_name {integrator[3][18]/q}
+set_db -quiet {inst:cic/integrator_reg[3][19]} .original_name {{integrator[3][19]}}
+set_db -quiet {inst:cic/integrator_reg[3][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/integrator_reg[3][19]} .single_bit_orig_name {integrator[3][19]}
+set_db -quiet {inst:cic/integrator_reg[3][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/integrator_reg[3][19]/Q} .original_name {integrator[3][19]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][0]} .original_name {{d_comb[1][1][0]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][0]} .single_bit_orig_name {d_comb[1][1][0]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][0]/Q} .original_name {d_comb[1][1][0]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][19]} .original_name {{d_comb[2][1][19]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][19]} .single_bit_orig_name {d_comb[2][1][19]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][19]/Q} .original_name {d_comb[2][1][19]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][19]} .original_name {{d_comb[1][1][19]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][19]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][19]} .single_bit_orig_name {d_comb[1][1][19]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][19]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][19]/Q} .original_name {d_comb[1][1][19]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][0]} .original_name {{d_comb[2][1][0]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][0]} .single_bit_orig_name {d_comb[2][1][0]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][0]/Q} .original_name {d_comb[2][1][0]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][1]} .original_name {{d_comb[2][1][1]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][1]} .single_bit_orig_name {d_comb[2][1][1]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][1]/Q} .original_name {d_comb[2][1][1]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][1]/QN} .original_name {d_comb[2][1][1]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][14]} .original_name {{d_comb[2][1][14]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][14]} .single_bit_orig_name {d_comb[2][1][14]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][14]/Q} .original_name {d_comb[2][1][14]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][14]/QN} .original_name {d_comb[2][1][14]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][7]} .original_name {{d_comb[2][1][7]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][7]} .single_bit_orig_name {d_comb[2][1][7]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][7]/Q} .original_name {d_comb[2][1][7]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][7]/QN} .original_name {d_comb[2][1][7]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][13]} .original_name {{d_comb[2][1][13]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][13]} .single_bit_orig_name {d_comb[2][1][13]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][13]/Q} .original_name {d_comb[2][1][13]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][13]/QN} .original_name {d_comb[2][1][13]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][17]} .original_name {{d_comb[2][1][17]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][17]} .single_bit_orig_name {d_comb[2][1][17]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][17]/Q} .original_name {d_comb[2][1][17]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][17]/QN} .original_name {d_comb[2][1][17]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][9]} .original_name {{d_comb[2][1][9]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][9]} .single_bit_orig_name {d_comb[2][1][9]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][9]/Q} .original_name {d_comb[2][1][9]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][9]/QN} .original_name {d_comb[2][1][9]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][11]} .original_name {{d_comb[2][1][11]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][11]} .single_bit_orig_name {d_comb[2][1][11]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][11]/Q} .original_name {d_comb[2][1][11]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][11]/QN} .original_name {d_comb[2][1][11]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][12]} .original_name {{d_comb[2][1][12]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][12]} .single_bit_orig_name {d_comb[2][1][12]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][12]/Q} .original_name {d_comb[2][1][12]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][12]/QN} .original_name {d_comb[2][1][12]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][6]} .original_name {{d_comb[2][1][6]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][6]} .single_bit_orig_name {d_comb[2][1][6]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][6]/Q} .original_name {d_comb[2][1][6]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][6]/QN} .original_name {d_comb[2][1][6]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][3]} .original_name {{d_comb[2][1][3]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][3]} .single_bit_orig_name {d_comb[2][1][3]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][3]/Q} .original_name {d_comb[2][1][3]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][3]/QN} .original_name {d_comb[2][1][3]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][16]} .original_name {{d_comb[2][1][16]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][16]} .single_bit_orig_name {d_comb[2][1][16]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][16]/Q} .original_name {d_comb[2][1][16]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][16]/QN} .original_name {d_comb[2][1][16]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][8]} .original_name {{d_comb[2][1][8]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][8]} .single_bit_orig_name {d_comb[2][1][8]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][8]/Q} .original_name {d_comb[2][1][8]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][8]/QN} .original_name {d_comb[2][1][8]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][18]} .original_name {{d_comb[2][1][18]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][18]} .single_bit_orig_name {d_comb[2][1][18]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][18]/Q} .original_name {d_comb[2][1][18]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][18]/QN} .original_name {d_comb[2][1][18]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][15]} .original_name {{d_comb[2][1][15]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][15]} .single_bit_orig_name {d_comb[2][1][15]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][15]/Q} .original_name {d_comb[2][1][15]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][15]/QN} .original_name {d_comb[2][1][15]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][10]} .original_name {{d_comb[2][1][10]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][10]} .single_bit_orig_name {d_comb[2][1][10]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][10]/Q} .original_name {d_comb[2][1][10]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][10]/QN} .original_name {d_comb[2][1][10]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][2]} .original_name {{d_comb[2][1][2]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][2]} .single_bit_orig_name {d_comb[2][1][2]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][2]/Q} .original_name {d_comb[2][1][2]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][2]/QN} .original_name {d_comb[2][1][2]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][4]} .original_name {{d_comb[2][1][4]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][4]} .single_bit_orig_name {d_comb[2][1][4]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][4]/Q} .original_name {d_comb[2][1][4]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][4]/QN} .original_name {d_comb[2][1][4]/q}
+set_db -quiet {inst:cic/d_comb_reg[2][1][5]} .original_name {{d_comb[2][1][5]}}
+set_db -quiet {inst:cic/d_comb_reg[2][1][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[2][1][5]} .single_bit_orig_name {d_comb[2][1][5]}
+set_db -quiet {inst:cic/d_comb_reg[2][1][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[2][1][5]/Q} .original_name {d_comb[2][1][5]/q}
+set_db -quiet {pin:cic/d_comb_reg[2][1][5]/QN} .original_name {d_comb[2][1][5]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][1]} .original_name {{d_comb[1][1][1]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][1]} .single_bit_orig_name {d_comb[1][1][1]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][1]/Q} .original_name {d_comb[1][1][1]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][1]/QN} .original_name {d_comb[1][1][1]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][14]} .original_name {{d_comb[1][1][14]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][14]} .single_bit_orig_name {d_comb[1][1][14]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][14]/Q} .original_name {d_comb[1][1][14]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][14]/QN} .original_name {d_comb[1][1][14]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][7]} .original_name {{d_comb[1][1][7]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][7]} .single_bit_orig_name {d_comb[1][1][7]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][7]/Q} .original_name {d_comb[1][1][7]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][7]/QN} .original_name {d_comb[1][1][7]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][13]} .original_name {{d_comb[1][1][13]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][13]} .single_bit_orig_name {d_comb[1][1][13]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][13]/Q} .original_name {d_comb[1][1][13]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][13]/QN} .original_name {d_comb[1][1][13]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][17]} .original_name {{d_comb[1][1][17]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][17]} .single_bit_orig_name {d_comb[1][1][17]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][17]/Q} .original_name {d_comb[1][1][17]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][17]/QN} .original_name {d_comb[1][1][17]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][9]} .original_name {{d_comb[1][1][9]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][9]} .single_bit_orig_name {d_comb[1][1][9]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][9]/Q} .original_name {d_comb[1][1][9]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][9]/QN} .original_name {d_comb[1][1][9]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][11]} .original_name {{d_comb[1][1][11]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][11]} .single_bit_orig_name {d_comb[1][1][11]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][11]/Q} .original_name {d_comb[1][1][11]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][11]/QN} .original_name {d_comb[1][1][11]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][12]} .original_name {{d_comb[1][1][12]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][12]} .single_bit_orig_name {d_comb[1][1][12]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][12]/Q} .original_name {d_comb[1][1][12]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][12]/QN} .original_name {d_comb[1][1][12]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][6]} .original_name {{d_comb[1][1][6]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][6]} .single_bit_orig_name {d_comb[1][1][6]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][6]/Q} .original_name {d_comb[1][1][6]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][6]/QN} .original_name {d_comb[1][1][6]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][3]} .original_name {{d_comb[1][1][3]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][3]} .single_bit_orig_name {d_comb[1][1][3]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][3]/Q} .original_name {d_comb[1][1][3]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][3]/QN} .original_name {d_comb[1][1][3]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][16]} .original_name {{d_comb[1][1][16]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][16]} .single_bit_orig_name {d_comb[1][1][16]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][16]/Q} .original_name {d_comb[1][1][16]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][16]/QN} .original_name {d_comb[1][1][16]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][8]} .original_name {{d_comb[1][1][8]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][8]} .single_bit_orig_name {d_comb[1][1][8]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][8]/Q} .original_name {d_comb[1][1][8]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][8]/QN} .original_name {d_comb[1][1][8]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][18]} .original_name {{d_comb[1][1][18]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][18]} .single_bit_orig_name {d_comb[1][1][18]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][18]/Q} .original_name {d_comb[1][1][18]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][18]/QN} .original_name {d_comb[1][1][18]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][15]} .original_name {{d_comb[1][1][15]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][15]} .single_bit_orig_name {d_comb[1][1][15]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][15]/Q} .original_name {d_comb[1][1][15]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][15]/QN} .original_name {d_comb[1][1][15]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][10]} .original_name {{d_comb[1][1][10]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][10]} .single_bit_orig_name {d_comb[1][1][10]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][10]/Q} .original_name {d_comb[1][1][10]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][10]/QN} .original_name {d_comb[1][1][10]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][2]} .original_name {{d_comb[1][1][2]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][2]} .single_bit_orig_name {d_comb[1][1][2]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][2]/Q} .original_name {d_comb[1][1][2]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][2]/QN} .original_name {d_comb[1][1][2]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][4]} .original_name {{d_comb[1][1][4]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][4]} .single_bit_orig_name {d_comb[1][1][4]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][4]/Q} .original_name {d_comb[1][1][4]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][4]/QN} .original_name {d_comb[1][1][4]/q}
+set_db -quiet {inst:cic/d_comb_reg[1][1][5]} .original_name {{d_comb[1][1][5]}}
+set_db -quiet {inst:cic/d_comb_reg[1][1][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[1][1][5]} .single_bit_orig_name {d_comb[1][1][5]}
+set_db -quiet {inst:cic/d_comb_reg[1][1][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[1][1][5]/Q} .original_name {d_comb[1][1][5]/q}
+set_db -quiet {pin:cic/d_comb_reg[1][1][5]/QN} .original_name {d_comb[1][1][5]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][1]} .original_name {{d_comb[0][1][1]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][1]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][1]} .single_bit_orig_name {d_comb[0][1][1]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][1]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][1]/Q} .original_name {d_comb[0][1][1]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][1]/QN} .original_name {d_comb[0][1][1]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][14]} .original_name {{d_comb[0][1][14]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][14]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][14]} .single_bit_orig_name {d_comb[0][1][14]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][14]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][14]/Q} .original_name {d_comb[0][1][14]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][14]/QN} .original_name {d_comb[0][1][14]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][7]} .original_name {{d_comb[0][1][7]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][7]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][7]} .single_bit_orig_name {d_comb[0][1][7]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][7]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][7]/Q} .original_name {d_comb[0][1][7]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][7]/QN} .original_name {d_comb[0][1][7]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][13]} .original_name {{d_comb[0][1][13]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][13]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][13]} .single_bit_orig_name {d_comb[0][1][13]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][13]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][13]/Q} .original_name {d_comb[0][1][13]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][13]/QN} .original_name {d_comb[0][1][13]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][17]} .original_name {{d_comb[0][1][17]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][17]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][17]} .single_bit_orig_name {d_comb[0][1][17]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][17]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][17]/Q} .original_name {d_comb[0][1][17]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][17]/QN} .original_name {d_comb[0][1][17]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][9]} .original_name {{d_comb[0][1][9]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][9]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][9]} .single_bit_orig_name {d_comb[0][1][9]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][9]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][9]/Q} .original_name {d_comb[0][1][9]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][9]/QN} .original_name {d_comb[0][1][9]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][11]} .original_name {{d_comb[0][1][11]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][11]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][11]} .single_bit_orig_name {d_comb[0][1][11]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][11]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][11]/Q} .original_name {d_comb[0][1][11]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][11]/QN} .original_name {d_comb[0][1][11]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][12]} .original_name {{d_comb[0][1][12]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][12]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][12]} .single_bit_orig_name {d_comb[0][1][12]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][12]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][12]/Q} .original_name {d_comb[0][1][12]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][12]/QN} .original_name {d_comb[0][1][12]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][6]} .original_name {{d_comb[0][1][6]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][6]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][6]} .single_bit_orig_name {d_comb[0][1][6]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][6]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][6]/Q} .original_name {d_comb[0][1][6]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][6]/QN} .original_name {d_comb[0][1][6]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][3]} .original_name {{d_comb[0][1][3]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][3]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][3]} .single_bit_orig_name {d_comb[0][1][3]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][3]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][3]/Q} .original_name {d_comb[0][1][3]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][3]/QN} .original_name {d_comb[0][1][3]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][16]} .original_name {{d_comb[0][1][16]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][16]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][16]} .single_bit_orig_name {d_comb[0][1][16]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][16]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][16]/Q} .original_name {d_comb[0][1][16]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][16]/QN} .original_name {d_comb[0][1][16]/q}
+set_db -quiet {inst:cic/d_tmp_reg[0]} .original_name {{d_tmp[0]}}
+set_db -quiet {inst:cic/d_tmp_reg[0]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_tmp_reg[0]} .single_bit_orig_name {d_tmp[0]}
+set_db -quiet {inst:cic/d_tmp_reg[0]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_tmp_reg[0]/Q} .original_name {d_tmp[0]/q}
+set_db -quiet {pin:cic/d_tmp_reg[0]/QN} .original_name {d_tmp[0]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][8]} .original_name {{d_comb[0][1][8]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][8]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][8]} .single_bit_orig_name {d_comb[0][1][8]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][8]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][8]/Q} .original_name {d_comb[0][1][8]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][8]/QN} .original_name {d_comb[0][1][8]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][18]} .original_name {{d_comb[0][1][18]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][18]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][18]} .single_bit_orig_name {d_comb[0][1][18]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][18]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][18]/Q} .original_name {d_comb[0][1][18]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][18]/QN} .original_name {d_comb[0][1][18]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][15]} .original_name {{d_comb[0][1][15]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][15]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][15]} .single_bit_orig_name {d_comb[0][1][15]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][15]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][15]/Q} .original_name {d_comb[0][1][15]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][15]/QN} .original_name {d_comb[0][1][15]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][10]} .original_name {{d_comb[0][1][10]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][10]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][10]} .single_bit_orig_name {d_comb[0][1][10]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][10]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][10]/Q} .original_name {d_comb[0][1][10]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][10]/QN} .original_name {d_comb[0][1][10]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][2]} .original_name {{d_comb[0][1][2]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][2]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][2]} .single_bit_orig_name {d_comb[0][1][2]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][2]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][2]/Q} .original_name {d_comb[0][1][2]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][2]/QN} .original_name {d_comb[0][1][2]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][4]} .original_name {{d_comb[0][1][4]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][4]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][4]} .single_bit_orig_name {d_comb[0][1][4]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][4]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][4]/Q} .original_name {d_comb[0][1][4]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][4]/QN} .original_name {d_comb[0][1][4]/q}
+set_db -quiet {inst:cic/d_comb_reg[0][1][5]} .original_name {{d_comb[0][1][5]}}
+set_db -quiet {inst:cic/d_comb_reg[0][1][5]} .orig_hdl_instantiated false
+set_db -quiet {inst:cic/d_comb_reg[0][1][5]} .single_bit_orig_name {d_comb[0][1][5]}
+set_db -quiet {inst:cic/d_comb_reg[0][1][5]} .gint_phase_inversion false
+set_db -quiet {pin:cic/d_comb_reg[0][1][5]/Q} .original_name {d_comb[0][1][5]/q}
+set_db -quiet {pin:cic/d_comb_reg[0][1][5]/QN} .original_name {d_comb[0][1][5]/q}
+# BEGIN PMBIST SECTION
+# END PMBIST SECTION
+# BEGIN PHYSICAL ANNOTATION SECTION
+# END PHYSICAL ANNOTATION SECTION
+set_db -quiet source_verbose true
+#############################################################
+#####   FLOW WRITE   ########################################
+##
+## Written by Genus(TM) Synthesis Solution version 21.14-s082_1
+## flowkit v21.12-s008_1
+## Written on 12:17:06 06-Feb 2026
+#############################################################
+#####   Flow Definitions   ##################################
+
+#############################################################
+#####   Step Definitions   ##################################
+
+
+#############################################################
+#####   Attribute Definitions   #############################
+
+if {[is_attribute flow_edit_end_steps -obj_type root]} {set_db flow_edit_end_steps {}}
+if {[is_attribute flow_edit_start_steps -obj_type root]} {set_db flow_edit_start_steps {}}
+if {[is_attribute flow_footer_tcl -obj_type root]} {set_db flow_footer_tcl {}}
+if {[is_attribute flow_header_tcl -obj_type root]} {set_db flow_header_tcl {}}
+if {[is_attribute flow_metadata -obj_type root]} {set_db flow_metadata {}}
+if {[is_attribute flow_setup_config -obj_type root]} {set_db flow_setup_config {HUDDLE {!!map {}}}}
+if {[is_attribute flow_step_begin_tcl -obj_type root]} {set_db flow_step_begin_tcl {}}
+if {[is_attribute flow_step_check_tcl -obj_type root]} {set_db flow_step_check_tcl {}}
+if {[is_attribute flow_step_end_tcl -obj_type root]} {set_db flow_step_end_tcl {}}
+if {[is_attribute flow_step_order -obj_type root]} {set_db flow_step_order {}}
+if {[is_attribute flow_summary_tcl -obj_type root]} {set_db flow_summary_tcl {}}
+if {[is_attribute flow_template_feature_definition -obj_type root]} {set_db flow_template_feature_definition {}}
+if {[is_attribute flow_template_type -obj_type root]} {set_db flow_template_type {}}
+if {[is_attribute flow_template_tools -obj_type root]} {set_db flow_template_tools {}}
+if {[is_attribute flow_template_version -obj_type root]} {set_db flow_template_version {}}
+if {[is_attribute flow_user_templates -obj_type root]} {set_db flow_user_templates {}}
+
+
+#############################################################
+#####   Flow History   ######################################
+
+if {[is_attribute flow_user_templates -obj_type root]} {set_db flow_user_templates {}}
+if {[is_attribute flow_plugin_steps -obj_type root]} {set_db flow_plugin_steps {}}
+if {[is_attribute flow_template_type -obj_type root]} {set_db flow_template_type {}}
+if {[is_attribute flow_template_tools -obj_type root]} {set_db flow_template_tools {}}
+if {[is_attribute flow_template_version -obj_type root]} {set_db flow_template_version {}}
+if {[is_attribute flow_template_feature_definition -obj_type root]} {set_db flow_template_feature_definition {}}
+if {[is_attribute flow_remark -obj_type root]} {set_db flow_remark {}}
+if {[is_attribute flow_features -obj_type root]} {set_db flow_features {}}
+if {[is_attribute flow_feature_values -obj_type root]} {set_db flow_feature_values {}}
+if {[is_attribute flow_write_db_args -obj_type root]} {set_db flow_write_db_args {}}
+if {[is_attribute flow_write_db_sdc -obj_type root]} {set_db flow_write_db_sdc true}
+if {[is_attribute flow_write_db_common -obj_type root]} {set_db flow_write_db_common false}
+if {[is_attribute flow_post_db_overwrite -obj_type root]} {set_db flow_post_db_overwrite {}}
+if {[is_attribute flow_step_order -obj_type root]} {set_db flow_step_order {}}
+if {[is_attribute flow_step_begin_tcl -obj_type root]} {set_db flow_step_begin_tcl {}}
+if {[is_attribute flow_step_end_tcl -obj_type root]} {set_db flow_step_end_tcl {}}
+if {[is_attribute flow_step_last -obj_type root]} {set_db flow_step_last {}}
+if {[is_attribute flow_step_current -obj_type root]} {set_db flow_step_current {}}
+if {[is_attribute flow_step_canonical_current -obj_type root]} {set_db flow_step_canonical_current {}}
+if {[is_attribute flow_step_next -obj_type root]} {set_db flow_step_next {}}
+if {[is_attribute flow_working_directory -obj_type root]} {set_db flow_working_directory .}
+if {[is_attribute flow_branch -obj_type root]} {set_db flow_branch {}}
+if {[is_attribute flow_caller_data -obj_type root]} {set_db flow_caller_data {}}
+if {[is_attribute flow_metrics_snapshot_uuid -obj_type root]} {set_db flow_metrics_snapshot_uuid 2822c7b1-1a4d-4375-861a-928e6a31f578}
+if {[is_attribute flow_starting_db -obj_type root]} {set_db flow_starting_db {}}
+if {[is_attribute flow_db_directory -obj_type root]} {set_db flow_db_directory dbs}
+if {[is_attribute flow_report_directory -obj_type root]} {set_db flow_report_directory reports}
+if {[is_attribute flow_log_directory -obj_type root]} {set_db flow_log_directory logs}
+if {[is_attribute flow_mail_to -obj_type root]} {set_db flow_mail_to {}}
+if {[is_attribute flow_exit_when_done -obj_type root]} {set_db flow_exit_when_done false}
+if {[is_attribute flow_mail_on_error -obj_type root]} {set_db flow_mail_on_error false}
+if {[is_attribute flow_summary_tcl -obj_type root]} {set_db flow_summary_tcl {}}
+if {[is_attribute flow_history -obj_type root]} {set_db flow_history {}}
+if {[is_attribute flow_step_last_status -obj_type root]} {set_db flow_step_last_status not_run}
+if {[is_attribute flow_step_last_msg -obj_type root]} {set_db flow_step_last_msg {}}
+if {[is_attribute flow_run_tag -obj_type root]} {set_db flow_run_tag {}}
+if {[is_attribute flow_current_cache -obj_type root]} {set_db flow_current_cache {}}
+if {[is_attribute flow_step_order_cache -obj_type root]} {set_db flow_step_order_cache {}}
+if {[is_attribute flow_step_results_cache -obj_type root]} {set_db flow_step_results_cache {}}
+if {[is_attribute flow_metadata -obj_type root]} {set_db flow_metadata {}}
+if {[is_attribute flow_execute_in_global -obj_type root]} {set_db flow_execute_in_global true}
+if {[is_attribute flow_overwrite_db -obj_type root]} {set_db flow_overwrite_db false}
+if {[is_attribute flow_print_run_information -obj_type root]} {set_db flow_print_run_information false}
+if {[is_attribute flow_verbose -obj_type root]} {set_db flow_verbose true}
+if {[is_attribute flow_print_run_information_full -obj_type root]} {set_db flow_print_run_information_full false}
+if {[is_attribute flow_header_tcl -obj_type root]} {set_db flow_header_tcl {}}
+if {[is_attribute flow_footer_tcl -obj_type root]} {set_db flow_footer_tcl {}}
+if {[is_attribute flow_init_header_tcl -obj_type root]} {set_db flow_init_header_tcl {}}
+if {[is_attribute flow_init_footer_tcl -obj_type root]} {set_db flow_init_footer_tcl {}}
+if {[is_attribute flow_edit_start_steps -obj_type root]} {set_db flow_edit_start_steps {}}
+if {[is_attribute flow_edit_end_steps -obj_type root]} {set_db flow_edit_end_steps {}}
+if {[is_attribute flow_step_last_number -obj_type root]} {set_db flow_step_last_number 0}
+if {[is_attribute flow_autoload_applets -obj_type root]} {set_db flow_autoload_applets false}
+if {[is_attribute flow_autoload_dir -obj_type root]} {set_db flow_autoload_dir error}
+if {[is_attribute flow_skip_auto_db_save -obj_type root]} {set_db flow_skip_auto_db_save true}
+if {[is_attribute flow_skip_auto_generate_metrics -obj_type root]} {set_db flow_skip_auto_generate_metrics false}
+if {[is_attribute flow_top -obj_type root]} {set_db flow_top {}}
+if {[is_attribute flow_hier_path -obj_type root]} {set_db flow_hier_path {}}
+if {[is_attribute flow_schedule -obj_type root]} {set_db flow_schedule {}}
+if {[is_attribute flow_step_check_tcl -obj_type root]} {set_db flow_step_check_tcl {}}
+if {[is_attribute flow_script -obj_type root]} {set_db flow_script {}}
+if {[is_attribute flow_yaml_script -obj_type root]} {set_db flow_yaml_script {}}
+if {[is_attribute flow_cla_enabled_features -obj_type root]} {set_db flow_cla_enabled_features {}}
+if {[is_attribute flow_cla_inject_tcl -obj_type root]} {set_db flow_cla_inject_tcl {}}
+if {[is_attribute flow_error_message -obj_type root]} {set_db flow_error_message {}}
+if {[is_attribute flow_error_errorinfo -obj_type root]} {set_db flow_error_errorinfo {}}
+if {[is_attribute flow_exclude_time_for_init_flow -obj_type root]} {set_db flow_exclude_time_for_init_flow false}
+if {[is_attribute flow_error_write_db -obj_type root]} {set_db flow_error_write_db true}
+if {[is_attribute flow_advanced_metric_isolation -obj_type root]} {set_db flow_advanced_metric_isolation flow}
+if {[is_attribute flow_yaml_root -obj_type root]} {set_db flow_yaml_root {}}
+if {[is_attribute flow_yaml_root_dir -obj_type root]} {set_db flow_yaml_root_dir {}}
+if {[is_attribute flow_setup_config -obj_type root]} {set_db flow_setup_config {HUDDLE {!!map {}}}}
+
+#############################################################
+#####   User Defined Attributes   ###########################
+
