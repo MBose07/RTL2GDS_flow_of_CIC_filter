@@ -24,7 +24,7 @@ This project implements a complete RTL-to-GDSII (RTL2GDS) design flow for a **Ca
   - Output Width: 16 bits (signed)
   - Decimation Ratio: 4x
   - Differential Delay: 4 taps per comb stage
-- **Technology**: 180nm CMOS (from PDK files)
+- **Technology**: 180nm CMOS (Cadence GPDK files)
 - **Clock Frequency**: 100 ns (10 MHz)
 
 ---
@@ -40,7 +40,7 @@ CIC/
 │   ├── tb.v                        # Testbench for CIC filter verification
 │   ├── input.txt                   # Input test vectors
 │   ├── output.txt                  # Simulation output results
-│   └── py/                         # Python utilities (MATLAB/Python verification)
+│   └── py/                         # Python utilities (Python verification)
 ├── script_innovus/                 # Cadence Innovus physical design scripts
 │   ├── setup.tcl                   # Innovus initialization and constraints
 │   └── mmmc.tcl                    # Multi Mode Multi Corner (MMMC) setup
@@ -55,7 +55,7 @@ CIC/
 ├── qrc/                            # QRC technology file
 │   └── t018s6mm.tch                # QuasiRC technology characterization
 ├── OUTPUT/                         # Generated synthesis outputs
-└── workspace/                      # Innovus working directory (physical design)
+└── workspace/                      # Working directory (physical design)
     └── DBS/                        # Innovus database snapshots
         ├── cts.db/                 # Clock tree synthesis
         ├── postcts.db/             # Post-CTS optimization
